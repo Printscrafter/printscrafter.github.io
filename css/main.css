@@ -120,7 +120,7 @@ ul li {
 	text-transform: ;
 }
 #header.fixed {
-	background-color: rgba(255, 255, 255, 0.75);
+	background-color: rgba(9, 9, 9, 0.75);
 }
 #header.fixed .header-content {
 	border-bottom: 0;
@@ -144,14 +144,14 @@ ul li {
 	display: inline-block;
 }
 .navigation a {
-	color: #000000;
+	color: #ffffff;
 	font-size: 13px;
 	font-weight: 300;
 	letter-spacing: 2px;
 	margin-left: 40px;
 }
 .navigation a:hover, .navigation a.active {
-	color: #262626;
+	color: #c8c1c1;
 }
 .nav-toggle {
 	display: none;
@@ -309,7 +309,7 @@ ul li {
 	padding-top: 45%;
 }
 .banner-text h1 {
-	color: #fffffff;
+	color: #ffffff;
 	font-family: "Open Sans", sans-serif;
 	font-size: 23px;
 	font-weight: 400;
@@ -363,7 +363,7 @@ ul li {
 	height: 100%;
 }
 .work .overlay {
-	background: rgba(232, 69, 69, 0.9);
+	background: rgba(219, 213, 213, 0.9);
 	height: 100%;
 	left: 0;
 	opacity: 0;
