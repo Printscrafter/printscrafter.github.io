@@ -100,6 +100,7 @@ ul li {
 	position: fixed;
 	width: 100%;
 	z-index: 999;
+	
 }
 #header .header-content {
 	margin: 0 auto;
@@ -120,7 +121,7 @@ ul li {
 	text-transform: ;
 }
 #header.fixed {
-	background-color: rgba(9, 9, 9, 0.75);
+	background-color: rgba(0, 0, 0, 0.5);
 }
 #header.fixed .header-content {
 	border-bottom: 0;
