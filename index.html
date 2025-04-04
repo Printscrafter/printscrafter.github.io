@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="zxx">
+<html lang="En">
     <head>
         <!-- Required Meta Tags -->
         <meta charset="UTF-8">
@@ -22,9 +22,10 @@
         <link rel="stylesheet" href="assets/css/style.css">
         <!-- Responsive CSS -->
         <link rel="stylesheet" href="assets/css/responsive.css">
-
+         <script src="https://cdn.tailwindcss.com"></script>
+ 
         <!-- Title -->
-        <title>Printscrafter</title>
+        <title>Printscrafter-Print On Demand</title>
         
         <!-- Favicon -->
         <link rel="icon" type="image/png" href="assets/img/favicon.png">
@@ -78,17 +79,10 @@
                                         About
                                     </a>
                                 </li>
-                                
-                                <li class="nav-item">
-                                    <a href="services.html" class="nav-link">
-                                        Services 
-                                        
-                                    </a>
-                                    
-                                </li>
+                               
                                 <li class="nav-item">
                                     <a href="print.html" class="nav-link">
-                                        Our Solutions 
+                                        Products And Services 
                                         <i class='bx bx-plus'></i>
                                     </a>
                                     <ul class="dropdown-menu">
@@ -176,6 +170,82 @@
             </div>
         </div>
         <!-- Main Banner End -->
+        	
+        <body class="bg-gray-100 font-sans leading-normal tracking-normal">
+
+    <div class="container mx-auto p-4 md:p-8 max-w-4xl">
+        <header class="text-center mb-8">
+            <h1 class="text-4xl font-bold text-blue-600">PrintScrafter</h1>
+            <p class="text-gray-600">Upload your images and get them printed!</p>
+        </header>
+
+        <!-- Image Upload Section -->
+        <section id="upload-section" class="bg-white p-6 rounded-lg shadow-md mb-8">
+            <h2 class="text-2xl font-semibold mb-4 text-gray-700">1. Upload Your Images</h2>
+            <div class="border-2 border-dashed border-gray-300 p-6 text-center rounded-lg hover:border-blue-400 cursor-pointer" id="drop-zone">
+                <input type="file" id="file-input" multiple accept="image/*" class="hidden">
+                <label for="file-input" class="cursor-pointer">
+                    <svg class="w-12 h-12 mx-auto text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 16a4 4 0 01-.88-7.903A5 5 0 1115.9 6L16 6a5 5 0 011 9.9M15 13l-3-3m0 0l-3 3m3-3v12"></path></svg>
+                    <p class="mt-2 text-sm text-gray-600">Drag & drop your images here, or click to select files</p>
+                    <p class="text-xs text-gray-500">PNG, JPG, GIF up to 10MB</p>
+                </label>
+            </div>
+            <div id="preview-area" class="mt-4 grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-4">
+                <!-- Image previews will be added here -->
+            </div>
+        </section>
+
+        <!-- Order Form Section -->
+        <section id="order-form-section" class="bg-white p-6 rounded-lg shadow-md mb-8 hidden">
+             <h2 class="text-2xl font-semibold mb-4 text-gray-700">2. Configure Your Prints</h2>
+             <div id="image-details-area">
+                 <!-- Dynamically added forms for each image -->
+             </div>
+        </section>
+
+        <!-- User Details Section -->
+        <section id="user-details-section" class="bg-white p-6 rounded-lg shadow-md mb-8 hidden">
+            <h2 class="text-2xl font-semibold mb-4 text-gray-700">3. Your Details</h2>
+            <form id="user-form">
+                <div class="mb-4">
+                    <label for="user-name" class="block text-gray-700 text-sm font-bold mb-2">Full Name:</label>
+                    <input type="text" id="user-name" name="userName" required class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline">
+                </div>
+                <div class="mb-4">
+                    <label for="user-email" class="block text-gray-700 text-sm font-bold mb-2">Email Address:</label>
+                    <input type="email" id="user-email" name="userEmail" required class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline">
+                </div>
+                <div class="mb-4">
+                    <label for="user-address" class="block text-gray-700 text-sm font-bold mb-2">Delivery Address:</label>
+                    <textarea id="user-address" name="userAddress" rows="3" required class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"></textarea>
+                </div>
+            </form>
+        </section>
+
+        <!-- Order Summary and Submit -->
+        <section id="summary-section" class="bg-white p-6 rounded-lg shadow-md mb-8 hidden">
+            <h2 class="text-2xl font-semibold mb-4 text-gray-700">4. Order Summary</h2>
+            <div class="flex justify-between items-center mb-4">
+                <span class="text-gray-600">Total Items:</span>
+                <span id="total-items" class="font-bold text-lg">0</span>
+            </div>
+            <div class="flex justify-between items-center">
+                <span class="text-gray-600">Total Price:</span>
+                <span id="total-price" class="font-bold text-lg text-green-600">$0.00</span>
+            </div>
+            <button id="submit-order" class="mt-6 w-full bg-blue-600 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline transition duration-150 ease-in-out flex items-center justify-center disabled:opacity-50" disabled>
+                Place Order
+                <span id="submit-loader" class="loader hidden"></span>
+            </button>
+        </section>
+
+        <!-- Status/Feedback Area -->
+        <div id="status-message" class="mt-4 p-4 text-center rounded hidden"></div>
+
+    </div>
+
+    <script src="script.js"></script>
+    </body>
         
         <!-- About Area -->
         <div class="about-area pb-70">
