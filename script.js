@@ -1,309 +1,448 @@
-import * as THREE from 'three';
-import { PointerLockControls } from 'three/addons/controls/PointerLockControls.js';
+document.addEventListener('DOMContentLoaded', () => {
+    // --- Configuration ---
+    const GAS_WEB_APP_URL = 'https://script.google.com/macros/s/AKfycbwJIHO6rNjmbcy-3MBJbIbtcLqUc_fiQGIXT9LMyJO2VK_-avlkCYEvk0CYSHwNw1diJw/exec'; // Replace this later
+    const PRICES = {
+        '4x6': 1,
+        '5x7': 2,
+        '8x10': 3,
+        '12x16': 4,
+        '16x20': 6,
+        '20x24': 8,
+        '24x36': 15,
+        '36x42': 20
+    };
+    const MAX_FILE_SIZE_MB = 10;
 
-let scene, camera, renderer, controls;
-let moveForward = false, moveBackward = false, moveLeft = false, moveRight = false;
-const velocity = new THREE.Vector3();
-const direction = new THREE.Vector3();
-let prevTime = performance.now();
+    // --- DOM Elements ---
+    const fileInput = document.getElementById('file-input');
+    const dropZone = document.getElementById('drop-zone');
+    const previewArea = document.getElementById('preview-area');
+    const orderFormSection = document.getElementById('order-form-section');
+    const imageDetailsArea = document.getElementById('image-details-area');
+    const userDetailsSection = document.getElementById('user-details-section');
+    const summarySection = document.getElementById('summary-section');
+    const userNameInput = document.getElementById('user-name');
+    const userEmailInput = document.getElementById('user-email');
+    const userAddressInput = document.getElementById('user-address');
+    const totalItemsSpan = document.getElementById('total-items');
+    const totalPriceSpan = document.getElementById('total-price');
+    const submitOrderButton = document.getElementById('submit-order');
+    const statusMessageDiv = document.getElementById('status-message');
+    const submitLoader = document.getElementById('submit-loader');
 
-const artworkMeshes = []; // To store meshes for raycasting
-const textureLoader = new THREE.TextureLoader();
+    // --- State ---
+    let uploadedFiles = {}; // Store file objects and their details { fileId: { file: File, readerResult: base64, size: '4x6', quantity: 1, price: 0, element: HTMLElement } }
+    let nextFileId = 0;
 
-// --- Gallery Constants ---
-const wallHeight = 5;
-const wallThickness = 0.2;
-const roomSize = 20;
-const artworkElevation = 1.8; // How high the center of the artwork is from the floor
+    // --- Event Listeners ---
 
-// --- Artwork Data (Placeholders) ---
-const artworksData = [
-    // Back Wall (Z = -roomSize / 2 + wallThickness)
-    { img: 'https://via.placeholder.com/300x200/FF0000/FFFFFF?text=Artwork+1', title: 'Red Square', desc: 'A study in red.', position: new THREE.Vector3(-6, artworkElevation, -roomSize / 2 + wallThickness + 0.01), rotation: new THREE.Euler(0, 0, 0) },
-    { img: 'https://via.placeholder.com/200x300/00FF00/FFFFFF?text=Artwork+2', title: 'Green Rectangle', desc: 'Exploring verticality.', position: new THREE.Vector3(-2, artworkElevation, -roomSize / 2 + wallThickness + 0.01), rotation: new THREE.Euler(0, 0, 0) },
-    { img: 'https://via.placeholder.com/300x300/0000FF/FFFFFF?text=Artwork+3', title: 'Blue Cube', desc: 'Perfectly balanced.', position: new THREE.Vector3(2, artworkElevation, -roomSize / 2 + wallThickness + 0.01), rotation: new THREE.Euler(0, 0, 0) },
-    { img: 'https://via.placeholder.com/400x200/FFFF00/000000?text=Artwork+4', title: 'Yellow Landscape', desc: 'Wide and bright.', position: new THREE.Vector3(6, artworkElevation, -roomSize / 2 + wallThickness + 0.01), rotation: new THREE.Euler(0, 0, 0) },
-    // Left Wall (X = -roomSize / 2 + wallThickness)
-    { img: 'https://via.placeholder.com/250x250/FF00FF/FFFFFF?text=Artwork+5', title: 'Magenta Mix', desc: 'A vibrant piece.', position: new THREE.Vector3(-roomSize / 2 + wallThickness + 0.01, artworkElevation, -4), rotation: new THREE.Euler(0, Math.PI / 2, 0) },
-    { img: 'https://via.placeholder.com/250x350/00FFFF/000000?text=Artwork+6', title: 'Cyan Flow', desc: 'Cool and calm.', position: new THREE.Vector3(-roomSize / 2 + wallThickness + 0.01, artworkElevation, 4), rotation: new THREE.Euler(0, Math.PI / 2, 0) },
-    // Right Wall (X = roomSize / 2 - wallThickness)
-    { img: 'https://via.placeholder.com/300x200/FFA500/FFFFFF?text=Artwork+7', title: 'Orange Slice', desc: 'Warm tones.', position: new THREE.Vector3(roomSize / 2 - wallThickness - 0.01, artworkElevation, -6), rotation: new THREE.Euler(0, -Math.PI / 2, 0) },
-    { img: 'https://via.placeholder.com/200x400/800080/FFFFFF?text=Artwork+8', title: 'Purple Tower', desc: 'Reaching high.', position: new THREE.Vector3(roomSize / 2 - wallThickness - 0.01, artworkElevation, -2), rotation: new THREE.Euler(0, -Math.PI / 2, 0) },
-    { img: 'https://via.placeholder.com/300x300/FFFFFF/000000?text=Artwork+9', title: 'White Noise', desc: 'Silence.', position: new THREE.Vector3(roomSize / 2 - wallThickness - 0.01, artworkElevation, 2), rotation: new THREE.Euler(0, -Math.PI / 2, 0) },
-    { img: 'https://via.placeholder.com/400x300/000000/FFFFFF?text=Artwork+10', title: 'Black Canvas', desc: 'The void.', position: new THREE.Vector3(roomSize / 2 - wallThickness - 0.01, artworkElevation, 6), rotation: new THREE.Euler(0, -Math.PI / 2, 0) },
-];
+    // File Input Change
+    fileInput.addEventListener('change', handleFileSelect);
 
-
-// Make initGallery globally accessible for the callback in index.html
-window.initGallery = function() {
-    console.log("Initializing Gallery...");
-
-    // --- Basic Setup ---
-    scene = new THREE.Scene();
-    scene.background = new THREE.Color(0x87CEEB); // Sky blue background
-    scene.fog = new THREE.Fog(0x87CEEB, 0, 50); // Adjust fog distance
-
-    camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
-    camera.position.set(0, 1.6, 5); // Start position (eye level, slightly back)
-
-    renderer = new THREE.WebGLRenderer({ antialias: true });
-    renderer.setSize(window.innerWidth, window.innerHeight);
-    renderer.setPixelRatio(window.devicePixelRatio);
-    document.getElementById('gallery-container').appendChild(renderer.domElement);
-
-    // --- Lighting ---
-    const ambientLight = new THREE.AmbientLight(0xffffff, 0.7); // Slightly brighter ambient
-    scene.add(ambientLight);
-
-    const directionalLight = new THREE.DirectionalLight(0xffffff, 1.0); // Slightly brighter directional
-    directionalLight.position.set(10, 15, 10);
-    // Optional: Add shadows
-    // directionalLight.castShadow = true;
-    // renderer.shadowMap.enabled = true;
-    scene.add(directionalLight);
-
-    // Optional: Add a light pointing from the camera
-    // const pointLight = new THREE.PointLight(0xffffff, 0.5);
-    // camera.add(pointLight); // Attach light to camera
-    // scene.add(camera); // Add camera (with light) to scene
-
-    // --- Gallery Geometry ---
-    // Floor
-    const floorTexture = textureLoader.load('https://threejs.org/examples/textures/hardwood2_diffuse.jpg'); // Example texture
-    floorTexture.wrapS = THREE.RepeatWrapping;
-    floorTexture.wrapT = THREE.RepeatWrapping;
-    floorTexture.repeat.set(20, 20); // Repeat texture
-    const floorMaterial = new THREE.MeshStandardMaterial({ map: floorTexture });
-    const floorGeometry = new THREE.PlaneGeometry(100, 100);
-    const floor = new THREE.Mesh(floorGeometry, floorMaterial);
-    floor.rotation.x = -Math.PI / 2;
-    floor.position.y = 0;
-    // floor.receiveShadow = true; // Optional shadows
-    scene.add(floor);
-
-    // Walls
-    const wallMaterial = new THREE.MeshStandardMaterial({ color: 0xe0e0e0, roughness: 0.8 }); // Slightly rough off-white walls
-
-    // Back wall
-    const backWall = new THREE.Mesh(new THREE.BoxGeometry(roomSize, wallHeight, wallThickness), wallMaterial);
-    backWall.position.set(0, wallHeight / 2, -roomSize / 2);
-    // backWall.receiveShadow = true;
-    scene.add(backWall);
-
-    // Front wall (Partial - leaving an opening)
-    const frontWallSideWidth = roomSize / 2 - 2; // Opening width of 4 units
-    const frontWallLeft = new THREE.Mesh(new THREE.BoxGeometry(frontWallSideWidth, wallHeight, wallThickness), wallMaterial);
-    frontWallLeft.position.set(-(roomSize / 2 - frontWallSideWidth / 2), wallHeight / 2, roomSize / 2);
-    // frontWallLeft.receiveShadow = true;
-    scene.add(frontWallLeft);
-    const frontWallRight = new THREE.Mesh(new THREE.BoxGeometry(frontWallSideWidth, wallHeight, wallThickness), wallMaterial);
-    frontWallRight.position.set((roomSize / 2 - frontWallSideWidth / 2), wallHeight / 2, roomSize / 2);
-    // frontWallRight.receiveShadow = true;
-    scene.add(frontWallRight);
-    const frontWallTop = new THREE.Mesh(new THREE.BoxGeometry(roomSize - 2 * frontWallSideWidth, wallHeight * 0.3, wallThickness), wallMaterial); // Lintel
-    frontWallTop.position.set(0, wallHeight * 0.85, roomSize / 2); // Position above opening
-    scene.add(frontWallTop);
-
-
-    // Left wall
-    const leftWall = new THREE.Mesh(new THREE.BoxGeometry(wallThickness, wallHeight, roomSize), wallMaterial);
-    leftWall.position.set(-roomSize / 2, wallHeight / 2, 0);
-    // leftWall.receiveShadow = true;
-    scene.add(leftWall);
-
-    // Right wall
-    const rightWall = new THREE.Mesh(new THREE.BoxGeometry(wallThickness, wallHeight, roomSize), wallMaterial);
-    rightWall.position.set(roomSize / 2, wallHeight / 2, 0);
-    // rightWall.receiveShadow = true;
-    scene.add(rightWall);
-
-    // --- Load Artworks ---
-    loadArtworks();
-
-    // --- Controls ---
-    controls = new PointerLockControls(camera, renderer.domElement);
-
-    renderer.domElement.addEventListener('click', () => {
-        if (!controls.isLocked) {
-            controls.lock();
-        } else {
-            // Handle artwork clicks when locked (see animate function)
+    // Drag and Drop
+    dropZone.addEventListener('dragover', (e) => {
+        e.preventDefault();
+        dropZone.classList.add('border-blue-500', 'bg-blue-50');
+    });
+    dropZone.addEventListener('dragleave', (e) => {
+        e.preventDefault();
+        dropZone.classList.remove('border-blue-500', 'bg-blue-50');
+    });
+    dropZone.addEventListener('drop', (e) => {
+        e.preventDefault();
+        dropZone.classList.remove('border-blue-500', 'bg-blue-50');
+        if (e.dataTransfer.files && e.dataTransfer.files.length > 0) {
+            handleFiles(e.dataTransfer.files);
+            fileInput.files = e.dataTransfer.files; // Optional: Sync with file input
         }
     });
 
-    controls.addEventListener('lock', () => {
-        console.log('Pointer locked');
-        document.getElementById('instructions').style.display = 'block';
+    // Click on Drop Zone triggers File Input
+    dropZone.addEventListener('click', () => {
+        fileInput.click();
     });
 
-    controls.addEventListener('unlock', () => {
-        console.log('Pointer unlocked');
-        document.getElementById('instructions').style.display = 'none';
-        document.getElementById('artwork-details').style.display = 'none'; // Hide details on unlock
-    });
+    // Submit Order
+    submitOrderButton.addEventListener('click', handleSubmitOrder);
 
-    scene.add(controls.getObject());
+    // --- Functions ---
 
-    // --- Keyboard Input ---
-    document.addEventListener('keydown', onKeyDown);
-    document.addEventListener('keyup', onKeyUp);
+    function handleFileSelect(event) {
+        handleFiles(event.target.files);
+    }
 
-    // --- Window Resize ---
-    window.addEventListener('resize', onWindowResize);
+    function handleFiles(files) {
+        if (!files) return;
+        showStatusMessage('', false); // Clear previous status
 
-    // --- Raycaster for Interaction ---
-    const raycaster = new THREE.Raycaster();
-    const pointer = new THREE.Vector2(); // Use center of screen for interaction
-
-    // Add click listener for interaction when pointer is locked
-    renderer.domElement.addEventListener('click', () => {
-        if (controls.isLocked) {
-            interactWithArtwork();
-        }
-    });
-
-    function interactWithArtwork() {
-        // Raycast from camera center
-        raycaster.setFromCamera(pointer, camera); // pointer is (0,0) - center
-
-        const intersects = raycaster.intersectObjects(artworkMeshes);
-
-        if (intersects.length > 0) {
-            const intersectedObject = intersects[0].object;
-            // Find corresponding artwork data
-            const artworkData = artworksData.find(art => art.mesh === intersectedObject);
-
-            if (artworkData) {
-                console.log("Clicked on:", artworkData.title);
-                // Show details
-                document.getElementById('artwork-title').textContent = artworkData.title;
-                document.getElementById('artwork-description').textContent = artworkData.desc;
-                document.getElementById('artwork-details').style.display = 'block';
+        for (const file of files) {
+            if (!file.type.startsWith('image/')) {
+                console.warn(`Skipping non-image file: ${file.name}`);
+                showStatusMessage(`Skipped non-image file: ${file.name}`, true, 'orange');
+                continue;
             }
-        } else {
-            // Clicked elsewhere, hide details
-            document.getElementById('artwork-details').style.display = 'none';
+            if (file.size > MAX_FILE_SIZE_MB * 1024 * 1024) {
+                console.warn(`Skipping large file: ${file.name} (${(file.size / 1024 / 1024).toFixed(2)} MB)`);
+                 showStatusMessage(`File too large (max ${MAX_FILE_SIZE_MB}MB): ${file.name}`, true, 'orange');
+                continue;
+            }
+
+            const fileId = `file-${nextFileId++}`;
+            const reader = new FileReader();
+
+            reader.onload = function(e) {
+                // Store file data
+                uploadedFiles[fileId] = {
+                    file: file,
+                    readerResult: e.target.result, // Base64 data URL
+                    size: Object.keys(PRICES)[0], // Default to first size
+                    quantity: 1,
+                    price: 0, // Will be calculated later
+                    element: null // Will be assigned the form element
+                };
+                // Create preview and form elements
+                createImagePreviewAndForm(fileId, file.name, e.target.result);
+                updateSummaryAndVisibility(); // Update totals and show sections
+            }
+
+            reader.onerror = function(e) {
+                console.error("FileReader error:", e);
+                showStatusMessage(`Error reading file: ${file.name}`, true);
+            }
+
+            reader.readAsDataURL(file); // Read file as Base64
         }
     }
 
+    function createImagePreviewAndForm(fileId, fileName, imageSrc) {
+        // --- Create Preview ---
+        const previewContainer = document.createElement('div');
+        previewContainer.classList.add('relative', 'fade-in');
+        previewContainer.dataset.fileId = fileId; // Link preview to fileId
 
-    // --- Start Animation ---
-    animate();
-}
+        const img = document.createElement('img');
+        img.src = imageSrc;
+        img.alt = `Preview of ${fileName}`;
+        img.classList.add('w-full', 'h-32', 'object-cover', 'rounded-md', 'shadow'); // Fixed height preview
 
-function loadArtworks() {
-    artworksData.forEach(data => {
-        const texture = textureLoader.load(
-            data.img,
-            (tex) => { // onLoad callback
-                // Get aspect ratio to size the plane correctly
-                const aspectRatio = tex.image.naturalWidth / tex.image.naturalHeight;
-                const artworkWidth = 1.5; // Base width for artworks
-                const artworkHeight = artworkWidth / aspectRatio;
-                const geometry = new THREE.PlaneGeometry(artworkWidth, artworkHeight);
-                const material = new THREE.MeshStandardMaterial({
-                    map: tex,
-                    color: 0xffffff, // Ensure texture colors aren't tinted
-                    roughness: 0.7,
-                    metalness: 0.1 // Slightly metallic to catch light
-                });
-                const mesh = new THREE.Mesh(geometry, material);
+        const removeButtonPreview = document.createElement('button');
+        removeButtonPreview.innerHTML = '&times;'; // 'x' symbol
+        removeButtonPreview.classList.add('absolute', 'top-1', 'right-1', 'bg-red-500', 'text-white', 'rounded-full', 'w-5', 'h-5', 'flex', 'items-center', 'justify-center', 'text-xs', 'font-bold', 'hover:bg-red-700', 'transition-colors');
+        removeButtonPreview.title = `Remove ${fileName}`;
+        removeButtonPreview.onclick = () => removeImage(fileId);
 
-                mesh.position.copy(data.position);
-                mesh.rotation.copy(data.rotation);
-                // mesh.castShadow = true; // Optional
+        previewContainer.appendChild(img);
+        previewContainer.appendChild(removeButtonPreview);
+        previewArea.appendChild(previewContainer);
 
-                // Store reference to data in mesh for raycasting
-                mesh.userData = data;
-                data.mesh = mesh; // Store mesh reference back in data (optional)
+        // --- Create Form Section ---
+        const formContainer = document.createElement('div');
+        formContainer.classList.add('border', 'border-gray-200', 'p-4', 'rounded-md', 'mb-4', 'fade-in', 'flex', 'flex-col', 'md:flex-row', 'md:items-center', 'gap-4');
+        formContainer.dataset.fileId = fileId; // Link form to fileId
+        uploadedFiles[fileId].element = formContainer; // Store reference
 
-                scene.add(mesh);
-                artworkMeshes.push(mesh); // Add to array for raycasting
-                console.log("Loaded artwork:", data.title);
-            },
-            undefined, // onProgress callback (optional)
-            (err) => { // onError callback
-                console.error(`Error loading texture for ${data.title}:`, err);
-                // Optionally load a fallback texture/material
+        // Mini Preview in Form
+        const formImg = document.createElement('img');
+        formImg.src = imageSrc;
+        formImg.alt = fileName;
+        formImg.classList.add('w-16', 'h-16', 'object-cover', 'rounded', 'flex-shrink-0');
+
+        // Details Div
+        const detailsDiv = document.createElement('div');
+        detailsDiv.classList.add('flex-grow');
+
+        // File Name
+        const nameP = document.createElement('p');
+        nameP.textContent = fileName;
+        nameP.classList.add('font-semibold', 'text-sm', 'mb-2', 'truncate'); // Truncate long names
+
+        // Size Selector
+        const sizeLabel = document.createElement('label');
+        sizeLabel.textContent = 'Size: ';
+        sizeLabel.classList.add('text-sm', 'mr-1');
+        const sizeSelect = document.createElement('select');
+        sizeSelect.classList.add('border', 'border-gray-300', 'rounded', 'px-2', 'py-1', 'text-sm');
+        sizeSelect.dataset.fileId = fileId;
+        for (const size in PRICES) {
+            const option = document.createElement('option');
+            option.value = size;
+            option.textContent = `${size} ($${PRICES[size].toFixed(2)})`;
+            sizeSelect.appendChild(option);
+        }
+        sizeSelect.value = uploadedFiles[fileId].size; // Set default
+        sizeSelect.onchange = handleItemChange;
+
+        // Quantity Input
+        const quantityLabel = document.createElement('label');
+        quantityLabel.textContent = 'Qty: ';
+        quantityLabel.classList.add('text-sm', 'ml-2', 'mr-1');
+        const quantityInput = document.createElement('input');
+        quantityInput.type = 'number';
+        quantityInput.min = '1';
+        quantityInput.value = uploadedFiles[fileId].quantity;
+        quantityInput.classList.add('border', 'border-gray-300', 'rounded', 'px-2', 'py-1', 'text-sm', 'w-16');
+        quantityInput.dataset.fileId = fileId;
+        quantityInput.onchange = handleItemChange;
+        quantityInput.oninput = handleItemChange; // Handle direct input too
+
+        // Price Display
+        const priceP = document.createElement('p');
+        priceP.classList.add('text-sm', 'mt-1', 'font-medium', 'text-green-600');
+        priceP.textContent = `Item Price: $${calculateItemPrice(fileId).toFixed(2)}`; // Initial price
+
+        detailsDiv.appendChild(nameP);
+        detailsDiv.appendChild(sizeLabel);
+        detailsDiv.appendChild(sizeSelect);
+        detailsDiv.appendChild(quantityLabel);
+        detailsDiv.appendChild(quantityInput);
+        detailsDiv.appendChild(priceP);
+
+        // Remove Button for Form Item
+        const removeButtonForm = document.createElement('button');
+        removeButtonForm.innerHTML = '&times;';
+        removeButtonForm.classList.add('bg-red-100', 'text-red-600', 'rounded-full', 'w-6', 'h-6', 'flex', 'items-center', 'justify-center', 'text-sm', 'font-bold', 'hover:bg-red-200', 'transition-colors', 'flex-shrink-0', 'ml-auto', 'md:ml-0');
+        removeButtonForm.title = `Remove ${fileName}`;
+        removeButtonForm.onclick = () => removeImage(fileId);
+
+        formContainer.appendChild(formImg);
+        formContainer.appendChild(detailsDiv);
+        formContainer.appendChild(removeButtonForm); // Add remove button to form item
+
+        imageDetailsArea.appendChild(formContainer);
+    }
+
+    function handleItemChange(event) {
+        const fileId = event.target.dataset.fileId;
+        if (!uploadedFiles[fileId]) return;
+
+        const formContainer = uploadedFiles[fileId].element;
+        const sizeSelect = formContainer.querySelector('select');
+        const quantityInput = formContainer.querySelector('input[type="number"]');
+        const priceP = formContainer.querySelector('p.text-green-600');
+
+        uploadedFiles[fileId].size = sizeSelect.value;
+        uploadedFiles[fileId].quantity = parseInt(quantityInput.value) || 1; // Ensure quantity is at least 1
+        if (uploadedFiles[fileId].quantity < 1) { // Correct if user enters 0 or less
+             uploadedFiles[fileId].quantity = 1;
+             quantityInput.value = 1;
+        }
+
+        const itemPrice = calculateItemPrice(fileId);
+        priceP.textContent = `Item Price: $${itemPrice.toFixed(2)}`;
+
+        updateSummaryAndVisibility();
+    }
+
+    function calculateItemPrice(fileId) {
+        const item = uploadedFiles[fileId];
+        const pricePerItem = PRICES[item.size] || 0;
+        item.price = pricePerItem * item.quantity;
+        return item.price;
+    }
+
+    function removeImage(fileId) {
+        if (!uploadedFiles[fileId]) return;
+
+        // Remove preview
+        const previewElement = previewArea.querySelector(`div[data-file-id="${fileId}"]`);
+        if (previewElement) previewElement.remove();
+
+        // Remove form section
+        const formElement = imageDetailsArea.querySelector(`div[data-file-id="${fileId}"]`);
+        if (formElement) formElement.remove();
+
+        // Remove from state
+        delete uploadedFiles[fileId];
+
+        updateSummaryAndVisibility();
+    }
+
+    function updateSummaryAndVisibility() {
+        const fileIds = Object.keys(uploadedFiles);
+        const hasFiles = fileIds.length > 0;
+
+        // Toggle visibility of sections
+        orderFormSection.classList.toggle('hidden', !hasFiles);
+        userDetailsSection.classList.toggle('hidden', !hasFiles);
+        summarySection.classList.toggle('hidden', !hasFiles);
+
+        if (hasFiles) {
+            let totalItems = 0;
+            let totalPrice = 0;
+            fileIds.forEach(id => {
+                totalItems += uploadedFiles[id].quantity;
+                totalPrice += calculateItemPrice(id); // Recalculate just in case
+            });
+
+            totalItemsSpan.textContent = totalItems;
+            totalPriceSpan.textContent = `$${totalPrice.toFixed(2)}`;
+            submitOrderButton.disabled = false; // Enable submit button if files exist
+        } else {
+            totalItemsSpan.textContent = '0';
+            totalPriceSpan.textContent = '$0.00';
+            submitOrderButton.disabled = true; // Disable submit if no files
+        }
+    }
+
+    function showStatusMessage(message, isError = false, color = 'red') {
+        statusMessageDiv.textContent = message;
+        statusMessageDiv.classList.remove('hidden', 'bg-red-100', 'text-red-700', 'bg-green-100', 'text-green-700', 'bg-orange-100', 'text-orange-700'); // Clear previous styles
+
+        if (message) {
+            let bgColor, textColor;
+            if (isError) {
+                if (color === 'orange') {
+                    bgColor = 'bg-orange-100';
+                    textColor = 'text-orange-700';
+                } else {
+                    bgColor = 'bg-red-100';
+                    textColor = 'text-red-700';
+                }
+            } else {
+                bgColor = 'bg-green-100';
+                textColor = 'text-green-700';
             }
-        );
-    });
-}
-
-
-function onWindowResize() {
-    camera.aspect = window.innerWidth / window.innerHeight;
-    camera.updateProjectionMatrix();
-    renderer.setSize(window.innerWidth, window.innerHeight);
-}
-
-function onKeyDown(event) {
-    switch (event.code) {
-        case 'ArrowUp':
-        case 'KeyW':
-            moveForward = true;
-            break;
-        case 'ArrowLeft':
-        case 'KeyA':
-            moveLeft = true;
-            break;
-        case 'ArrowDown':
-        case 'KeyS':
-            moveBackward = true;
-            break;
-        case 'ArrowRight':
-        case 'KeyD':
-            moveRight = true;
-            break;
-    }
-}
-
-function onKeyUp(event) {
-    switch (event.code) {
-        case 'ArrowUp':
-        case 'KeyW':
-            moveForward = false;
-            break;
-        case 'ArrowLeft':
-        case 'KeyA':
-            moveLeft = false;
-            break;
-        case 'ArrowDown':
-        case 'KeyS':
-            moveBackward = false;
-            break;
-        case 'ArrowRight':
-        case 'KeyD':
-            moveRight = false;
-            break;
-    }
-}
-
-function animate() {
-    requestAnimationFrame(animate);
-
-    const time = performance.now();
-    const delta = (time - prevTime) / 1000;
-
-    if (controls.isLocked === true) {
-        // Reset velocity damping
-        velocity.x -= velocity.x * 10.0 * delta;
-        velocity.z -= velocity.z * 10.0 * delta;
-
-        direction.z = Number(moveForward) - Number(moveBackward);
-        direction.x = Number(moveRight) - Number(moveLeft);
-        direction.normalize(); // Ensures consistent movement speed
-
-        const speed = 40.0; // Movement speed factor
-        if (moveForward || moveBackward) velocity.z -= direction.z * speed * delta;
-        if (moveLeft || moveRight) velocity.x -= direction.x * speed * delta;
-
-        controls.moveRight(-velocity.x * delta);
-        controls.moveForward(-velocity.z * delta);
+            statusMessageDiv.classList.add(bgColor, textColor);
+            statusMessageDiv.classList.remove('hidden');
+        } else {
+            statusMessageDiv.classList.add('hidden');
+        }
     }
 
-    prevTime = time;
-    renderer.render(scene, camera);
-}
+    async function handleSubmitOrder() {
+        // --- Validation ---
+        const name = userNameInput.value.trim();
+        const email = userEmailInput.value.trim();
+        const address = userAddressInput.value.trim();
+        const items = Object.values(uploadedFiles);
 
-// Note: initGallery() is called from index.html after successful Google Sign-In
+        if (items.length === 0) {
+            showStatusMessage('Please upload at least one image.', true);
+            return;
+        }
+        if (!name || !email || !address) {
+            showStatusMessage('Please fill in all your details (Name, Email, Address).', true);
+            // Optionally highlight missing fields
+            if (!name) userNameInput.classList.add('border-red-500'); else userNameInput.classList.remove('border-red-500');
+            if (!email) userEmailInput.classList.add('border-red-500'); else userEmailInput.classList.remove('border-red-500');
+            if (!address) userAddressInput.classList.add('border-red-500'); else userAddressInput.classList.remove('border-red-500');
+            return;
+        } else {
+             userNameInput.classList.remove('border-red-500');
+             userEmailInput.classList.remove('border-red-500');
+             userAddressInput.classList.remove('border-red-500');
+        }
+
+        // Basic email format check (consider a more robust regex if needed)
+        if (!/^\S+@\S+\.\S+$/.test(email)) {
+             showStatusMessage('Please enter a valid email address.', true);
+             userEmailInput.classList.add('border-red-500');
+             return;
+        } else {
+             userEmailInput.classList.remove('border-red-500');
+        }
+
+        if (GAS_WEB_APP_URL === 'YOUR_GOOGLE_APPS_SCRIPT_WEB_APP_URL_HERE') {
+             showStatusMessage('Error: Google Apps Script URL is not configured in script.js.', true);
+             return;
+        }
+
+
+        // --- Prepare Data ---
+        showStatusMessage('Submitting order...', false, 'blue'); // Use a neutral color for processing
+        submitOrderButton.disabled = true;
+        submitLoader.classList.remove('hidden');
+
+        const orderData = {
+            userName: name,
+            userEmail: email,
+            userAddress: address,
+            items: items.map(item => ({
+                fileName: item.file.name,
+                mimeType: item.file.type,
+                base64Data: item.readerResult.split(',')[1], // Remove the "data:image/png;base64," part
+                size: item.size,
+                quantity: item.quantity,
+                price: item.price
+            })),
+            totalPrice: parseFloat(totalPriceSpan.textContent.replace('$', ''))
+        };
+
+        // --- Send Data to Google Apps Script ---
+        try {
+            const response = await fetch(GAS_WEB_APP_URL, {
+                method: 'POST',
+                // mode: 'cors', // Removed this line - let browser handle default
+                cache: 'no-cache',
+                headers: {
+                    // 'Content-Type': 'application/json', // Changed to text/plain
+                    'Content-Type': 'text/plain;charset=utf-8', // Send as plain text
+                },
+                 // redirect: 'follow', // GAS web apps often require following redirects
+                body: JSON.stringify(orderData) // Still send the stringified JSON in the body
+            });
+
+             // Note: GAS web apps often return HTML confirmation or plain text on success,
+             // and might not return perfect JSON unless specifically crafted in doPost.
+             // We'll try to parse JSON, but handle potential errors gracefully.
+            let result;
+            const contentType = response.headers.get("content-type");
+            if (contentType && contentType.indexOf("application/json") !== -1) {
+                result = await response.json();
+            } else {
+                // If not JSON, maybe plain text or HTML - treat as success if status is OK
+                const textResult = await response.text();
+                console.log("GAS Response (non-JSON):", textResult);
+                 if (!response.ok) {
+                    throw new Error(`Server responded with status ${response.status}: ${textResult}`);
+                 }
+                 // Assume success if response is OK but not JSON
+                 result = { status: 'success', message: 'Order submitted successfully (check email for confirmation).' };
+            }
+
+
+            if (response.ok && result.status === 'success') {
+                showStatusMessage(result.message || 'Order submitted successfully!', false);
+                // Clear form and state
+                resetForm();
+            } else {
+                throw new Error(result.message || 'An unknown error occurred during submission.');
+            }
+
+        } catch (error) {
+            console.error('Error submitting order:', error);
+            showStatusMessage(`Error submitting order: ${error.message}`, true);
+        } finally {
+            submitOrderButton.disabled = false; // Re-enable button even on error
+            submitLoader.classList.add('hidden');
+             // Re-enable button only if there are still items (might have failed)
+             updateSummaryAndVisibility();
+        }
+    }
+
+    function resetForm() {
+        // Clear file input visually (though the internal FileList might be harder to clear reliably)
+        fileInput.value = ''; // May not work in all browsers for security reasons
+
+        // Clear previews and forms
+        previewArea.innerHTML = '';
+        imageDetailsArea.innerHTML = '';
+
+        // Clear user details form
+        userNameInput.value = '';
+        userEmailInput.value = '';
+        userAddressInput.value = '';
+         userNameInput.classList.remove('border-red-500');
+         userEmailInput.classList.remove('border-red-500');
+         userAddressInput.classList.remove('border-red-500');
+
+
+        // Reset state
+        uploadedFiles = {};
+        nextFileId = 0;
+
+        // Update summary and hide sections
+        updateSummaryAndVisibility();
+    }
+
+}); // End DOMContentLoaded
