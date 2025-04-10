@@ -1,1 +1,4 @@
-/* Custom CSS styles can be added here if needed */
+/* Custom styles for the virtual gallery can be added here */
+canvas {
+    display: block; /* Prevent scrollbars */
+}
