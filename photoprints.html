@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Printscrafter - Print, Brand & Advertising</title>
+    <title>Photo Prints- Print, Brand & Advertising</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="style.css">
     <style>
@@ -129,7 +129,7 @@
     </header>
 
     <!-- Hero Section -->
-    <section id="hero" class="relative bg-brand-red text-white text-center py-20 md:py-32 animate-fade-in-down" style="background-image: url('images/hero.jpg'); background-size: cover; background-position: center;"> <!-- Updated background image path -->
+    <section id="hero" class="relative bg-brand-red text-white text-center py-20 md:py-32 animate-fade-in-down" style="background-image: url('images/printnow.jpg'); background-size: cover; background-position: center;"> <!-- Updated background image path -->
         <!-- Overlay -->
         <div class="absolute inset-0 bg-brand-red opacity-50 z-0"></div>
         <!-- Content -->
@@ -137,268 +137,69 @@
             <div class="text-4xl md:text-5xl font-bold mb-6 h-16 md:h-20"> <!-- Added height to prevent layout shift -->
                 <span id="animated-text" class="border-r-2 border-white pr-1"></span> <!-- Span for typewriter text -->
             </div>
-            <p class="text-lg md:text-xl mb-8">High-quality printing, branding, and advertising solutions.</p>
+            <p class="text-lg md:text-xl mb-8">Upload your images or artworks and get them printed!</p>
             <a href="#contact" class="bg-white text-brand-red font-semibold py-2 px-6 rounded-full hover:bg-gray-200 transition duration-300">Get Started</a>
         </div>
     </section>
+        <!-- Image Upload Section -->
+        <section id="upload-section" class="bg-white p-6 rounded-lg shadow-md mb-8">
+            <h2 class="text-2xl font-semibold mb-4 text-gray-700">Upload Your Custom Images</h2>
+            <div class="border-2 border-dashed border-gray-300 p-6 text-center rounded-lg hover:border-blue-400 cursor-pointer" id="drop-zone">
+                <input type="file" id="file-input" multiple accept="image/*" class="hidden">
+                <label for="file-input" class="cursor-pointer">
+                    <svg class="w-12 h-12 mx-auto text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 16a4 4 0 01-.88-7.903A5 5 0 1115.9 6L16 6a5 5 0 011 9.9M15 13l-3-3m0 0l-3 3m3-3v12"></path></svg>
+                    <p class="mt-2 text-sm text-gray-600">Drag & drop your images here, or click to select files</p>
+                    <p class="text-xs text-gray-500">PNG, JPG, GIF up to 10MB</p>
+                </label>
+            </div>
+            <div id="preview-area" class="mt-4 grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-4">
+                <!-- Image previews will be added here -->
+            </div>
+        </section>
 
-    <!-- About Section (Placeholder) -->
-    <section id="about" class="py-16 bg-white">
-        <div class="container mx-auto px-6 text-center">
-            <h2 class="text-3xl font-bold text-gray-800 mb-6">About Printscrafter</h2>
-            <p class="text-gray-600 max-w-2xl mx-auto mb-6">We are a passionate team dedicated to bringing your creative ideas to life through exceptional print, branding, and advertising services.</p>
-            <a href="about.html" class="bg-brand-red text-white font-semibold py-2 px-6 rounded-full hover:bg-opacity-90 transition duration-300">Know More</a> <!-- Added Button -->
-        </div>
-    </section>
-    <!-- Placeholder for more about details if needed -->
-    <section id="about-details" class="hidden py-16 bg-white">
-         <div class="container mx-auto px-6">
-             <h3 class="text-2xl font-bold text-center mb-4">More About Us...</h3>
-             <!-- Add more detailed content here -->
-         </div>
-    </section>
-
-    <!-- Services Carousel Section -->
-    <section id="services" class="py-16 bg-white"> <!-- Changed background -->
-        <div class="container mx-auto px-6 text-center">
-             <h2 class="text-3xl font-bold text-gray-800 mb-8">Our Services</h2>
-             <div class="relative max-w-4xl mx-auto overflow-hidden">
-                 <!-- Service Carousel Item Container -->
-                 <div id="service-carousel-items" class="flex transition-transform duration-500 ease-in-out">
-                     <!-- Service Card 1: Photo Prints -->
-                     <div class="service-carousel-item min-w-full md:min-w-[50%] lg:min-w-[33.33%] p-4">
-                         <div class="bg-gray-50 rounded-lg shadow-lg overflow-hidden h-full flex flex-col p-6">
-                             <img src="images/photoprints.jpg" alt="Photo Prints" class="w-full h-40 object-cover mb-4 rounded"> <!-- Updated image path -->
-                             <h3 class="text-xl font-semibold text-gray-800 mb-2">Photo Prints</h3>
-                             <p class="text-gray-600 text-sm mb-4 flex-grow">High-quality prints for your cherished memories.</p>
-                             <a href="photoprints.html" class="bg-brand-red text-white font-semibold py-2 px-4 rounded-full hover:bg-opacity-90 transition duration-300 mt-auto self-center">Start</a>
-                         </div>
-                     </div>
-                     <!-- Service Card 2: Passport Prints -->
-                     <div class="service-carousel-item min-w-full md:min-w-[50%] lg:min-w-[33.33%] p-4">
-                         <div class="bg-gray-50 rounded-lg shadow-lg overflow-hidden h-full flex flex-col p-6">
-                             <img src="images/passportprints.jpg" alt="Passport Prints" class="w-full h-40 object-cover mb-4 rounded"> <!-- Updated image path -->
-                             <h3 class="text-xl font-semibold text-gray-800 mb-2">Passport Prints</h3>
-                             <p class="text-gray-600 text-sm mb-4 flex-grow">Official size passport photos, printed quickly.</p>
-                             <a href="passportprints.html" class="bg-brand-red text-white font-semibold py-2 px-4 rounded-full hover:bg-opacity-90 transition duration-300 mt-auto self-center">Start</a>
-                         </div>
-                     </div>
-                     <!-- Service Card 3: Artwork Prints -->
-                     <div class="service-carousel-item min-w-full md:min-w-[50%] lg:min-w-[33.33%] p-4">
-                         <div class="bg-gray-50 rounded-lg shadow-lg overflow-hidden h-full flex flex-col p-6">
-                             <img src="images/artworkprints.png" alt="Artwork Prints" class="w-full h-40 object-cover mb-4 rounded"> <!-- Updated image path -->
-                             <h3 class="text-xl font-semibold text-gray-800 mb-2">Artwork Prints</h3>
-                             <p class="text-gray-600 text-sm mb-4 flex-grow">Reproduce your art with stunning clarity and color.</p>
-                             <a href="artworkprints.html" class="bg-brand-red text-white font-semibold py-2 px-4 rounded-full hover:bg-opacity-90 transition duration-300 mt-auto self-center">Start</a>
-                         </div>
-                     </div>
-                     <!-- Service Card 4: Paper Prints -->
-                     <div class="service-carousel-item min-w-full md:min-w-[50%] lg:min-w-[33.33%] p-4">
-                         <div class="bg-gray-50 rounded-lg shadow-lg overflow-hidden h-full flex flex-col p-6">
-                             <img src="images/paperprints.jpg" alt="Paper Prints" class="w-full h-40 object-cover mb-4 rounded"> <!-- Updated image path -->
-                             <h3 class="text-xl font-semibold text-gray-800 mb-2">Paper Prints</h3>
-                             <p class="text-gray-600 text-sm mb-4 flex-grow">Versatile printing on various paper types and sizes.</p>
-                             <a href="paperprints.html" class="bg-brand-red text-white font-semibold py-2 px-4 rounded-full hover:bg-opacity-90 transition duration-300 mt-auto self-center">Start</a>
-                         </div>
-                     </div>
-                     <!-- Service Card 5: General Prints -->
-                     <div class="service-carousel-item min-w-full md:min-w-[50%] lg:min-w-[33.33%] p-4">
-                         <div class="bg-gray-50 rounded-lg shadow-lg overflow-hidden h-full flex flex-col p-6">
-                             <img src="images/generalprints.jpg" alt="General Prints" class="w-full h-40 object-cover mb-4 rounded"> <!-- Updated image path -->
-                             <h3 class="text-xl font-semibold text-gray-800 mb-2">General Prints</h3>
-                             <p class="text-gray-600 text-sm mb-4 flex-grow">Flyers, brochures, documents, and more.</p>
-                             <a href="generalprints.html" class="bg-brand-red text-white font-semibold py-2 px-4 rounded-full hover:bg-opacity-90 transition duration-300 mt-auto self-center">Start</a>
-                         </div>
-                     </div>
-                     <!-- Service Card 6: Photo Editing -->
-                     <div class="service-carousel-item min-w-full md:min-w-[50%] lg:min-w-[33.33%] p-4">
-                         <div class="bg-gray-50 rounded-lg shadow-lg overflow-hidden h-full flex flex-col p-6">
-                             <img src="images/photoediting.jpg" alt="Photo Editing" class="w-full h-40 object-cover mb-4 rounded"> <!-- Updated image path -->
-                             <h3 class="text-xl font-semibold text-gray-800 mb-2">Photo Editing</h3>
-                             <p class="text-gray-600 text-sm mb-4 flex-grow">Professional photo retouching and enhancement.</p>
-                             <a href="photoediting.html" class="bg-brand-red text-white font-semibold py-2 px-4 rounded-full hover:bg-opacity-90 transition duration-300 mt-auto self-center">Start</a>
-                         </div>
-                     </div>
-                      <!-- Service Card 7: Photobook -->
-                     <div class="service-carousel-item min-w-full md:min-w-[50%] lg:min-w-[33.33%] p-4">
-                         <div class="bg-gray-50 rounded-lg shadow-lg overflow-hidden h-full flex flex-col p-6">
-                             <img src="images/photobook.jpg" alt="Photobook" class="w-full h-40 object-cover mb-4 rounded"> <!-- Updated image path -->
-                             <h3 class="text-xl font-semibold text-gray-800 mb-2">Photobook</h3>
-                             <p class="text-gray-600 text-sm mb-4 flex-grow">Create beautiful custom photobooks.</p>
-                             <a href="photobook.html" class="bg-brand-red text-white font-semibold py-2 px-4 rounded-full hover:bg-opacity-90 transition duration-300 mt-auto self-center">Start</a>
-                         </div>
-                     </div>
-                      <!-- Service Card 8: Case Package -->
-                     <div class="service-carousel-item min-w-full md:min-w-[50%] lg:min-w-[33.33%] p-4">
-                         <div class="bg-gray-50 rounded-lg shadow-lg overflow-hidden h-full flex flex-col p-6">
-                             <img src="images/casepackage.jpg" alt="Case Package" class="w-full h-40 object-cover mb-4 rounded"> <!-- Updated image path -->
-                             <h3 class="text-xl font-semibold text-gray-800 mb-2">Case Package</h3>
-                             <p class="text-gray-600 text-sm mb-4 flex-grow">Custom packaging solutions for your products.</p>
-                             <a href="casepackage.html" class="bg-brand-red text-white font-semibold py-2 px-4 rounded-full hover:bg-opacity-90 transition duration-300 mt-auto self-center">Start</a>
-                         </div>
-                     </div>
-                     
-                     <!-- Service Card 10: Art Studio -->
-                     <div class="service-carousel-item min-w-full md:min-w-[50%] lg:min-w-[33.33%] p-4">
-                         <div class="bg-gray-50 rounded-lg shadow-lg overflow-hidden h-full flex flex-col p-6">
-                             <img src="images/artstudio.jpg" alt="Art Studio" class="w-full h-40 object-cover mb-4 rounded"> <!-- Updated image path -->
-                             <h3 class="text-xl font-semibold text-gray-800 mb-2">Art Studio</h3>
-                             <p class="text-gray-600 text-sm mb-4 flex-grow">Creative solutions and artistic touches for unique projects.</p>
-                             <a href="artstudio.html" class="bg-brand-red text-white font-semibold py-2 px-4 rounded-full hover:bg-opacity-90 transition duration-300 mt-auto self-center">View</a>
-                         </div>
-                     </div>
-                 </div>
-                 <!-- Service Carousel Controls -->
-                  <button id="service-prev-btn" class="absolute top-1/2 left-0 transform -translate-y-1/2 bg-gray-800 text-white p-2 rounded-full opacity-50 hover:opacity-100 focus:outline-none z-10">
-                     &#10094;
-                 </button>
-                 <button id="service-next-btn" class="absolute top-1/2 right-0 transform -translate-y-1/2 bg-gray-800 text-white p-2 rounded-full opacity-50 hover:opacity-100 focus:outline-none z-10">
-                     &#10095;
-                 </button>
+        <!-- Order Form Section -->
+        <section id="order-form-section" class="bg-white p-6 rounded-lg shadow-md mb-8 hidden">
+             <h2 class="text-2xl font-semibold mb-4 text-gray-700">Configure Your Prints</h2>
+             <div id="image-details-area">
+                 <!-- Dynamically added forms for each image -->
              </div>
-         </div>
-    </section>
+        </section>
 
-    <!-- Products Section (Placeholder) -->
-    <section id="products" class="py-16 bg-gray-50"> <!-- Changed background -->
-        <div class="container mx-auto px-6 text-center">
-            <h2 class="text-3xl font-bold text-gray-800 mb-6">Our Products</h2>
-            <p class="text-gray-600 max-w-2xl mx-auto">Explore our range of high-quality print products.</p>
-            <!-- Product examples here -->
-        </div>
-    </section>
-
-    <!-- Product Carousel Section -->
-    <section id="product-carousel" class="py-16 bg-gray-50">
-        <div class="container mx-auto px-6 text-center">
-            <h2 class="text-3xl font-bold text-gray-800 mb-8">Featured Products</h2>
-            <div class="relative max-w-2xl mx-auto bg-white p-6 rounded-lg shadow-lg overflow-hidden">
-                <!-- Carousel Item Container -->
-                <div id="carousel-items" class="relative h-64 md:h-80"> <!-- Adjust height as needed -->
-                    <!-- Items will be loaded here by JS -->
-                    <div class="carousel-item absolute inset-0 transition-opacity duration-500 ease-in-out opacity-100 flex flex-col items-center justify-center text-center">
-                        <img src="images/product1.png" alt="Product 1" class="max-h-48 object-contain mb-4"> <!-- Updated image path -->
-                        <p class="text-xl font-semibold text-gray-800 mb-4">Product Name 1</p>
-                        <a href="products.html" class="bg-brand-red text-white font-semibold py-2 px-6 rounded-full hover:bg-opacity-90 transition duration-300">Buy Now</a>
-                    </div>
-                     <div class="carousel-item absolute inset-0 transition-opacity duration-500 ease-in-out opacity-0 flex flex-col items-center justify-center text-center">
-                        <img src="images/product2.png" alt="Product 2" class="max-h-48 object-contain mb-4"> <!-- Updated image path -->
-                        <p class="text-xl font-semibold text-gray-800 mb-4">Product Name 2</p>
-                        <a href="products.html" class="bg-brand-red text-white font-semibold py-2 px-6 rounded-full hover:bg-opacity-90 transition duration-300">Buy Now</a>
-                    </div>
-                     <div class="carousel-item absolute inset-0 transition-opacity duration-500 ease-in-out opacity-0 flex flex-col items-center justify-center text-center">
-                        <img src="images/product3.png" alt="Product 3" class="max-h-48 object-contain mb-4"> <!-- Updated image path -->
-                        <p class="text-xl font-semibold text-gray-800 mb-4">Product Name 3</p>
-                        <a href="products.html" class="bg-brand-red text-white font-semibold py-2 px-6 rounded-full hover:bg-opacity-90 transition duration-300">Buy Now</a>
-                    </div>
+        <!-- User Details Section -->
+        <section id="user-details-section" class="bg-white p-6 rounded-lg shadow-md mb-8 hidden">
+            <h2 class="text-2xl font-semibold mb-4 text-gray-700">Your Details</h2>
+            <form id="user-form">
+                <div class="mb-4">
+                    <label for="user-name" class="block text-gray-700 text-sm font-bold mb-2">Full Name:</label>
+                    <input type="text" id="user-name" name="userName" required class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline">
                 </div>
-                <!-- Carousel Controls -->
-                <button id="prev-btn" class="absolute top-1/2 left-2 transform -translate-y-1/2 bg-gray-800 text-white p-2 rounded-full opacity-75 hover:opacity-100 focus:outline-none">
-                    &#10094;
-                </button>
-                <button id="next-btn" class="absolute top-1/2 right-2 transform -translate-y-1/2 bg-gray-800 text-white p-2 rounded-full opacity-75 hover:opacity-100 focus:outline-none">
-                    &#10095;
-                </button>
-            </div>
-        </div>
-    </section>
-
-    <!-- Blog Section (Placeholder) -->
-    <section id="blog" class="py-16 bg-white"> <!-- Changed background for alternation -->
-        <div class="container mx-auto px-6 text-center">
-            <h2 class="text-3xl font-bold text-gray-800 mb-6">Latest Blog Posts</h2>
-            <p class="text-gray-600 max-w-2xl mx-auto">Insights, tips, and news from the world of print and design.</p>
-            <!-- Blog post previews here -->
-        </div>
-    </section>
-
-    <!-- Blog Carousel Section -->
-    <section id="blog-carousel" class="py-16 bg-gray-50">
-        <div class="container mx-auto px-6 text-center">
-            <h2 class="text-3xl font-bold text-gray-800 mb-8">From the Blog</h2>
-            <div class="relative max-w-4xl mx-auto overflow-hidden">
-                <!-- Blog Carousel Item Container -->
-                <div id="blog-carousel-items" class="flex transition-transform duration-500 ease-in-out">
-                    <!-- Blog Post Card 1 -->
-                    <div class="blog-carousel-item min-w-full md:min-w-[50%] lg:min-w-[33.33%] p-4">
-                        <div class="bg-white rounded-lg shadow-lg overflow-hidden h-full flex flex-col">
-                            <img src="images/blog1.jpg" alt="Blog Post 1" class="w-full h-48 object-cover"> <!-- Updated image path -->
-                            <div class="p-6 flex flex-col flex-grow">
-                                <h3 class="text-xl font-semibold text-gray-800 mb-2">Social Media Shutdown and Print Advertising</h3>
-                                <p class="text-gray-600 text-sm mb-4 flex-grow">It’s unlikely many are going to shed a tear over Facebook’s financial loss – they would have recouped their losses overnight. </p>
-                                <a href="https://printscrafter.blogspot.com" class="text-brand-red hover:underline mt-auto self-start">Read More</a>
-                            </div>
-                        </div>
-                    </div>
-                    <!-- Blog Post Card 2 -->
-                    <div class="blog-carousel-item min-w-full md:min-w-[50%] lg:min-w-[33.33%] p-4">
-                        <div class="bg-white rounded-lg shadow-lg overflow-hidden h-full flex flex-col">
-                            <img src="images/blog2.jpg" alt="Blog Post 2" class="w-full h-48 object-cover"> <!-- Updated image path -->
-                            <div class="p-6 flex flex-col flex-grow">
-                                <h3 class="text-xl font-semibold text-gray-800 mb-2">The Trick to Geting Anniversary Picture Frames</h3>
-                                <p class="text-gray-600 text-sm mb-4 flex-grow">It may seem simple but everyone has pictures they want to share and this a perfect way to give a personal and treasured gift. </p>
-                                <a href="https://printscrafter.blogspot.com" class="text-brand-red hover:underline mt-auto self-start">Read More</a>
-                            </div>
-                        </div>
-                    </div>
-                    <!-- Blog Post Card 3 -->
-                    <div class="blog-carousel-item min-w-full md:min-w-[50%] lg:min-w-[33.33%] p-4">
-                        <div class="bg-white rounded-lg shadow-lg overflow-hidden h-full flex flex-col">
-                            <img src="images/blog3.jpg" alt="Blog Post 3" class="w-full h-48 object-cover"> <!-- Updated image path -->
-                            <div class="p-6 flex flex-col flex-grow">
-                                <h3 class="text-xl font-semibold text-gray-800 mb-2">Gift For The Print Marketing Industry</h3>
-                                <p class="text-gray-600 text-sm mb-4 flex-grow">Stare down at your feet when walking up a staircase at a train station and you’re faced with an advert, walk through a busy town centre and there’s an experiential ‘pop-up’, watch your favourite soap and there’s a carefully placed coffee cup.</p>
-                                <a href="https://printscrafter.blogspot.com " class="text-brand-red hover:underline mt-auto self-start">Read More</a>
-                            </div>
-                        </div>
-                    </div>
-                     <!-- Add more cards if needed, duplicating the structure -->
+                <div class="mb-4">
+                    <label for="user-email" class="block text-gray-700 text-sm font-bold mb-2">Email Address:</label>
+                    <input type="email" id="user-email" name="userEmail" required class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline">
                 </div>
-                <!-- Blog Carousel Controls -->
-                 <button id="blog-prev-btn" class="absolute top-1/2 left-0 transform -translate-y-1/2 bg-gray-800 text-white p-2 rounded-full opacity-50 hover:opacity-100 focus:outline-none z-10">
-                    &#10094;
-                </button>
-                <button id="blog-next-btn" class="absolute top-1/2 right-0 transform -translate-y-1/2 bg-gray-800 text-white p-2 rounded-full opacity-50 hover:opacity-100 focus:outline-none z-10">
-                    &#10095;
-                </button>
-            </div>
-        </div>
-    </section>
-
-     <!-- Testimonials Section -->
-    <section id="testimonials" class="py-16 bg-white">
-        <div class="container mx-auto px-6 text-center">
-            <h2 class="text-3xl font-bold text-gray-800 mb-8">What Our Clients Say</h2>
-            <div class="relative max-w-2xl mx-auto bg-gray-100 p-6 rounded-lg shadow-lg overflow-hidden">
-                <!-- Testimonial Item Container -->
-                <div id="testimonial-items" class="relative h-48 md:h-40"> <!-- Adjust height as needed -->
-                    <!-- Testimonial 1 -->
-                    <div class="testimonial-item absolute inset-0 transition-opacity duration-700 ease-in-out opacity-100 flex flex-col items-center justify-center text-center px-4">
-                        <p class="text-lg italic text-gray-700 mb-4">"Printscrafter delivered exceptional quality and met our tight deadline. Highly recommended!"</p>
-                        <p class="font-semibold text-gray-900">- Lawal, Marketing Manager</p>
-                    </div>
-                     <!-- Testimonial 2 -->
-                     <div class="testimonial-item absolute inset-0 transition-opacity duration-700 ease-in-out opacity-0 flex flex-col items-center justify-center text-center px-4">
-                        <p class="text-lg italic text-gray-700 mb-4">"The design team was fantastic, bringing our vision to life perfectly. Great service!"</p>
-                        <p class="font-semibold text-gray-900">- Dare, Small Business Owner</p>
-                    </div>
-                     <!-- Testimonial 3 -->
-                     <div class="testimonial-item absolute inset-0 transition-opacity duration-700 ease-in-out opacity-0 flex flex-col items-center justify-center text-center px-4">
-                        <p class="text-lg italic text-gray-700 mb-4">"Fast turnaround on passport photos and excellent print quality for our artwork."</p>
-                        <p class="font-semibold text-gray-900">- Charles, Artist</p>
-                    </div>
+                <div class="mb-4">
+                    <label for="user-address" class="block text-gray-700 text-sm font-bold mb-2">Delivery Address:</label>
+                    <textarea id="user-address" name="userAddress" rows="3" required class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"></textarea>
                 </div>
-                <!-- Testimonial Controls (Optional - can rely on auto-slide) -->
-                 <button id="testimonial-prev-btn" class="absolute top-1/2 left-2 transform -translate-y-1/2 bg-gray-800 text-white p-2 rounded-full opacity-50 hover:opacity-100 focus:outline-none">
-                    &#10094;
-                </button>
-                <button id="testimonial-next-btn" class="absolute top-1/2 right-2 transform -translate-y-1/2 bg-gray-800 text-white p-2 rounded-full opacity-50 hover:opacity-100 focus:outline-none">
-                    &#10095;
-                </button>
-            </div>
-        </div>
-    </section>
+            </form>
+        </section>
 
+        <!-- Order Summary and Submit -->
+        <section id="summary-section" class="bg-white p-6 rounded-lg shadow-md mb-8 hidden">
+            <h2 class="text-2xl font-semibold mb-4 text-gray-700">Order Summary</h2>
+            <div class="flex justify-between items-center mb-4">
+                <span class="text-gray-600">Total Items:</span>
+                <span id="total-items" class="font-bold text-lg">0</span>
+            </div>
+            <div class="flex justify-between items-center">
+                <span class="text-gray-600">Total Price:</span>
+                <span id="total-price" class="font-bold text-lg text-green-600">$0.00</span>
+            </div>
+            <button id="submit-order" class="mt-6 w-full bg-pink-600 hover:bg-pink-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline transition duration-150 ease-in-out flex items-center justify-center disabled:opacity-50" disabled>
+                Place Order
+                <span id="submit-loader" class="loader hidden"></span>
+            </button>
+        </section>
 
     <!-- Contact Section (Placeholder) -->
     <section id="contact" class="py-16 bg-brand-red text-white">
