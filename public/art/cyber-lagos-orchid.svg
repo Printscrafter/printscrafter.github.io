@@ -1,0 +1,85 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 1000" width="100%" height="100%">
+  <defs>
+    <radialGradient id="cyberBg" cx="50%" cy="45%" r="75%">
+      <stop offset="0%" stop-color="#140a2b"/>
+      <stop offset="50%" stop-color="#080314"/>
+      <stop offset="100%" stop-color="#020005"/>
+    </radialGradient>
+    <linearGradient id="orchidMagenta" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#ff007f"/>
+      <stop offset="60%" stop-color="#d9006c"/>
+      <stop offset="100%" stop-color="#79003e"/>
+    </linearGradient>
+    <linearGradient id="cyberCyan" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#00f5d4"/>
+      <stop offset="100%" stop-color="#0077b6"/>
+    </linearGradient>
+    <filter id="neonGlow" x="-30%" y="-30%" width="160%" height="160%">
+      <feGaussianBlur stdDeviation="10" result="coloredBlur"/>
+      <feMerge>
+        <feMergeNode in="coloredBlur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+    <filter id="wideAura" x="-40%" y="-40%" width="180%" height="180%">
+      <feGaussianBlur stdDeviation="28" result="softBlur"/>
+      <feMerge>
+        <feMergeNode in="softBlur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+  </defs>
+
+  <!-- Deep Obsidian Midnight Background -->
+  <rect width="800" height="1000" fill="url(#cyberBg)"/>
+
+  <!-- Geometric Luminous Hexagonal Wireframe Matrix -->
+  <polygon points="400,160 580,260 580,480 400,580 220,480 220,260" fill="none" stroke="#7928ca" stroke-width="1.5" opacity="0.4" stroke-dasharray="6,8"/>
+  <polygon points="400,200 540,280 540,460 400,540 260,460 260,280" fill="none" stroke="#00f5d4" stroke-width="1" opacity="0.3"/>
+
+  <!-- Ambient Light Spores -->
+  <circle cx="280" cy="220" r="4" fill="#00f5d4" filter="url(#neonGlow)"/>
+  <circle cx="560" cy="340" r="5" fill="#ff007f" filter="url(#neonGlow)"/>
+  <circle cx="210" cy="580" r="3" fill="#ffea00" filter="url(#neonGlow)"/>
+  <circle cx="620" cy="680" r="4" fill="#00f5d4" filter="url(#neonGlow)"/>
+
+  <!-- Backglow behind Orchid -->
+  <circle cx="400" cy="460" r="160" fill="#ff007f" opacity="0.18" filter="url(#wideAura)"/>
+  <circle cx="400" cy="460" r="90" fill="#00f5d4" opacity="0.22" filter="url(#wideAura)"/>
+
+  <!-- Futuristic Botanical Orchid Petals -->
+  <!-- Top Petal -->
+  <path d="M 400 440 C 370 320 330 220 400 180 C 470 220 430 320 400 440 Z" fill="url(#orchidMagenta)" filter="url(#neonGlow)"/>
+  
+  <!-- Left Petal -->
+  <path d="M 400 450 C 310 420 200 370 190 460 C 230 520 330 490 400 450 Z" fill="url(#orchidMagenta)" filter="url(#neonGlow)"/>
+  
+  <!-- Right Petal -->
+  <path d="M 400 450 C 490 420 600 370 610 460 C 570 520 470 490 400 450 Z" fill="url(#orchidMagenta)" filter="url(#neonGlow)"/>
+
+  <!-- Lower Left Wing Petal -->
+  <path d="M 400 470 C 340 510 260 620 320 670 C 380 660 390 560 400 470 Z" fill="#9b0052" opacity="0.95"/>
+  
+  <!-- Lower Right Wing Petal -->
+  <path d="M 400 470 C 460 510 540 620 480 670 C 420 660 410 560 400 470 Z" fill="#9b0052" opacity="0.95"/>
+
+  <!-- Neon Cyan Veins & Filament Stems -->
+  <path d="M 400 440 Q 400 300 400 200" stroke="#00f5d4" stroke-width="2.5" fill="none" filter="url(#neonGlow)"/>
+  <path d="M 400 450 Q 280 430 210 450" stroke="#00f5d4" stroke-width="2" fill="none" filter="url(#neonGlow)"/>
+  <path d="M 400 450 Q 520 430 590 450" stroke="#00f5d4" stroke-width="2" fill="none" filter="url(#neonGlow)"/>
+
+  <!-- Golden Stamen Core (Laser Focus) -->
+  <circle cx="400" cy="460" r="26" fill="#ffea00" filter="url(#neonGlow)"/>
+  <circle cx="400" cy="460" r="14" fill="#ffffff"/>
+
+  <!-- Dynamic Cyber Stem Extending Downwards -->
+  <path d="M 400 490 Q 420 660 380 820 Q 360 900 400 960" stroke="#00f5d4" stroke-width="4" fill="none" filter="url(#neonGlow)"/>
+
+  <!-- Horizontal Tech Metric Grids & Coordinates -->
+  <g opacity="0.6" font-family="'Inter', monospace" font-size="10" fill="#00f5d4">
+    <text x="60" y="920">BOTANICAL MODEL // 09-CYBER</text>
+    <text x="60" y="938">SPECTRUM: 440NM - 680NM</text>
+    <text x="740" y="920" text-anchor="end">LEKKI SMART LED LABS</text>
+    <text x="740" y="938" text-anchor="end">LAT 6.4474° N, 3.4723° E</text>
+  </g>
+</svg>

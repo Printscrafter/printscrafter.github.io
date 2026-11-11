@@ -1,0 +1,104 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 1600" width="1200" height="1600">
+  <defs>
+    <linearGradient id="cyberSky" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#05050f" />
+      <stop offset="40%" stop-color="#0d0a22" />
+      <stop offset="70%" stop-color="#190d3d" />
+      <stop offset="100%" stop-color="#080718" />
+    </linearGradient>
+
+    <linearGradient id="cyanNeon" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#00f5d4" />
+      <stop offset="50%" stop-color="#00bbf9" />
+      <stop offset="100%" stop-color="#3a86ff" />
+    </linearGradient>
+
+    <linearGradient id="magentaNeon" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#ff007f" />
+      <stop offset="50%" stop-color="#f72585" />
+      <stop offset="100%" stop-color="#7209b7" />
+    </linearGradient>
+
+    <filter id="neonGlow" x="-20%" y="-20%" width="140%" height="140%">
+      <feGaussianBlur stdDeviation="16" result="blur" />
+      <feMerge>
+        <feMergeNode in="blur" />
+        <feMergeNode in="blur" />
+        <feMergeNode in="SourceGraphic" />
+      </feMerge>
+    </filter>
+  </defs>
+
+  <!-- Deep Midnight Canvas -->
+  <rect width="1200" height="1600" fill="url(#cyberSky)" />
+
+  <!-- Cybernetic Grid Perspective Lines (Third Mainland Bridge at Midnight) -->
+  <g stroke="#1a1442" stroke-width="2" opacity="0.6">
+    <line x1="600" y1="480" x2="0" y2="1600" />
+    <line x1="600" y1="480" x2="200" y2="1600" />
+    <line x1="600" y1="480" x2="400" y2="1600" />
+    <line x1="600" y1="480" x2="600" y2="1600" />
+    <line x1="600" y1="480" x2="800" y2="1600" />
+    <line x1="600" y1="480" x2="1000" y2="1600" />
+    <line x1="600" y1="480" x2="1200" y2="1600" />
+
+    <!-- Horizontal Distance Rings -->
+    <ellipse cx="600" cy="540" rx="100" ry="20" fill="none" />
+    <ellipse cx="600" cy="620" rx="220" ry="40" fill="none" />
+    <ellipse cx="600" cy="740" rx="380" ry="70" fill="none" />
+    <ellipse cx="600" cy="920" rx="580" ry="110" fill="none" />
+    <ellipse cx="600" cy="1160" rx="840" ry="160" fill="none" />
+  </g>
+
+  <!-- Giant Synthwave Sun Horizon -->
+  <circle cx="600" cy="480" r="260" fill="url(#magentaNeon)" filter="url(#neonGlow)" opacity="0.8" />
+  <!-- Sun Blind Grid Slices -->
+  <rect x="340" y="440" width="520" height="8" fill="#080718" />
+  <rect x="340" y="480" width="520" height="14" fill="#080718" />
+  <rect x="340" y="530" width="520" height="22" fill="#080718" />
+  <rect x="340" y="590" width="520" height="32" fill="#080718" />
+
+  <!-- Bridge Pylons & Architectural Silhouette -->
+  <!-- Distant Towers -->
+  <polygon points="560,480 575,280 595,280 605,480" fill="#0d0a22" stroke="#00f5d4" stroke-width="2" />
+  <polygon points="635,480 620,280 600,280 590,480" fill="#0d0a22" stroke="#ff007f" stroke-width="2" />
+
+  <!-- Suspension Cables (Glowing Light Streaks) -->
+  <g stroke="url(#cyanNeon)" stroke-width="3" filter="url(#neonGlow)">
+    <line x1="585" y1="285" x2="420" y2="480" />
+    <line x1="585" y1="330" x2="470" y2="480" />
+    <line x1="585" y1="380" x2="520" y2="480" />
+    <line x1="610" y1="285" x2="780" y2="480" stroke="url(#magentaNeon)" />
+    <line x1="610" y1="330" x2="730" y2="480" stroke="url(#magentaNeon)" />
+    <line x1="610" y1="380" x2="680" y2="480" stroke="url(#magentaNeon)" />
+  </g>
+
+  <!-- High-Speed Midnight Traffic Light Streaks (Third Mainland Flow) -->
+  <!-- Left Bound Streams (Electric Cyan) -->
+  <g stroke="url(#cyanNeon)" stroke-linecap="round" filter="url(#neonGlow)">
+    <path d="M 580 480 Q 520 750 220 1600" stroke-width="14" fill="none" />
+    <path d="M 570 480 Q 480 800 120 1600" stroke-width="10" fill="none" />
+    <path d="M 590 480 Q 550 820 340 1600" stroke-width="8" fill="none" opacity="0.8" />
+  </g>
+
+  <!-- Right Bound Streams (Neon Magenta / Electric Violet) -->
+  <g stroke="url(#magentaNeon)" stroke-linecap="round" filter="url(#neonGlow)">
+    <path d="M 620 480 Q 680 750 980 1600" stroke-width="14" fill="none" />
+    <path d="M 630 480 Q 720 800 1080 1600" stroke-width="10" fill="none" />
+    <path d="M 610 480 Q 650 820 860 1600" stroke-width="8" fill="none" opacity="0.8" />
+  </g>
+
+  <!-- Sound Reactive Wave Graphic Overlay at Center -->
+  <g stroke="#ffffff" stroke-width="4" stroke-linecap="round" opacity="0.9" filter="url(#neonGlow)">
+    <path d="M 400 1100 Q 450 1020 500 1100 T 600 1100 T 700 1100 T 800 1100" fill="none" />
+    <path d="M 350 1150 Q 450 1050 550 1150 T 650 1150 T 750 1150 T 850 1150" fill="none" stroke="url(#cyanNeon)" stroke-width="6" />
+  </g>
+
+  <!-- Smart LED App Integration Badge -->
+  <rect x="420" y="1460" width="360" height="42" rx="21" fill="#080718" stroke="url(#cyanNeon)" stroke-width="1.5" />
+  <text x="600" y="1487" font-family="'Inter', sans-serif" font-size="12" font-weight="600" fill="url(#cyanNeon)" letter-spacing="3" text-anchor="middle">WI-FI &amp; SOUND REACTIVE LED</text>
+
+  <!-- Studio Monogram -->
+  <text x="1080" y="1530" font-family="'Inter', sans-serif" font-size="15" font-weight="600" fill="#ffffff" letter-spacing="4" text-anchor="end" opacity="0.7">PRINTSCRAFTER • LEKKI ATELIER</text>
+  <text x="1080" y="1555" font-family="'Playfair Display', serif" font-size="13" font-style="italic" fill="url(#magentaNeon)" text-anchor="end">Third Mainland Cyber-Pulse • Smart Art</text>
+</svg>

@@ -1,0 +1,62 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 1000" width="100%" height="100%">
+  <defs>
+    <linearGradient id="warmOchreSky" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#fbf7ee"/>
+      <stop offset="60%" stop-color="#f5e8d0"/>
+      <stop offset="100%" stop-color="#ebd2b0"/>
+    </linearGradient>
+    <linearGradient id="terracottaStep" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#d97757"/>
+      <stop offset="100%" stop-color="#b45339"/>
+    </linearGradient>
+    <filter id="stepShadow" x="-10%" y="-10%" width="130%" height="130%">
+      <feDropShadow dx="8" dy="12" stdDeviation="10" flood-color="#5c2616" flood-opacity="0.28"/>
+    </filter>
+  </defs>
+
+  <rect width="800" height="1000" fill="url(#warmOchreSky)"/>
+
+  <!-- Giant Midnight Sun Eclipse / Horizon Disc -->
+  <circle cx="360" cy="380" r="170" fill="#2d2926"/>
+  <circle cx="360" cy="380" r="170" fill="none" stroke="#d4af37" stroke-width="2"/>
+
+  <!-- Warm Olive Moon Slice Arc -->
+  <path d="M 360 210 A 170 170 0 0 1 530 380 L 360 380 Z" fill="#606c38" opacity="0.85"/>
+
+  <!-- Cascading Minimalist Terracotta Steps (Pinterest Bohemian Arch Architecture) -->
+  <g filter="url(#stepShadow)">
+    <!-- Arch doorway in wall -->
+    <path d="M 460 780 L 460 480 Q 460 380 560 380 Q 660 380 660 480 L 660 780 Z" fill="#ebd2b0"/>
+    <path d="M 480 780 L 480 500 Q 480 410 560 410 Q 640 410 640 500 L 640 780 Z" fill="#2d2926"/>
+    <!-- Distant Mediterranean Olive Branch in doorway -->
+    <path d="M 540 760 Q 560 620 580 540" stroke="#d4af37" stroke-width="3" fill="none"/>
+    <ellipse cx="570" cy="580" rx="12" ry="6" fill="#606c38" transform="rotate(-30 570 580)"/>
+    <ellipse cx="585" cy="550" rx="14" ry="7" fill="#606c38" transform="rotate(20 585 550)"/>
+  </g>
+
+  <!-- Stepped Geometric Pedestal Blocks -->
+  <g filter="url(#stepShadow)">
+    <polygon points="100,880 320,880 320,800 240,800 240,720 160,720 160,640 100,640" fill="url(#terracottaStep)"/>
+    <polygon points="100,640 160,640 140,610 80,610" fill="#e89274"/>
+    <polygon points="160,720 240,720 220,690 140,690" fill="#e89274"/>
+    <polygon points="240,800 320,800 300,770 220,770" fill="#e89274"/>
+  </g>
+
+  <!-- Large Artisanal Ceramic Amphora Vase -->
+  <g filter="url(#stepShadow)">
+    <path d="M 230 880 C 210 880 180 840 180 780 C 180 720 230 700 240 660 L 260 660 C 270 700 320 720 320 780 C 320 840 290 880 270 880 Z" fill="#c58367"/>
+    <!-- Vase neck and handles -->
+    <rect x="235" y="640" width="30" height="22" fill="#a45c43" rx="3"/>
+    <path d="M 200 720 C 170 720 170 760 190 770" stroke="#a45c43" stroke-width="5" fill="none"/>
+    <path d="M 300 720 C 330 720 330 760 310 770" stroke="#a45c43" stroke-width="5" fill="none"/>
+  </g>
+
+  <!-- Decorative Palm Leaf Contours -->
+  <path d="M 350 940 Q 420 720 480 580" stroke="#2d2926" stroke-width="4" fill="none" stroke-linecap="round"/>
+  <ellipse cx="440" cy="700" rx="36" ry="14" fill="#a45c43" transform="rotate(-35 440 700)"/>
+  <ellipse cx="460" cy="630" rx="32" ry="12" fill="#2d2926" transform="rotate(25 460 630)"/>
+  <ellipse cx="480" cy="560" rx="28" ry="10" fill="#d4af37" transform="rotate(-30 480 560)"/>
+
+  <!-- Baseline Studio Framing -->
+  <rect x="50" y="50" width="700" height="900" fill="none" stroke="#2d2926" stroke-width="2"/>
+</svg>

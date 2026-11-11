@@ -1,0 +1,69 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 1000" width="100%" height="100%">
+  <defs>
+    <linearGradient id="skyGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#fdfbf7"/>
+      <stop offset="60%" stop-color="#faeedb"/>
+      <stop offset="100%" stop-color="#f0d5b5"/>
+    </linearGradient>
+    <linearGradient id="concreteFacade" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#334155"/>
+      <stop offset="50%" stop-color="#1e293b"/>
+      <stop offset="100%" stop-color="#0f172a"/>
+    </linearGradient>
+    <linearGradient id="terracottaFacade" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#e07a5f"/>
+      <stop offset="100%" stop-color="#9a3412"/>
+    </linearGradient>
+    <linearGradient id="goldSun" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#fbbf24"/>
+      <stop offset="100%" stop-color="#d97706"/>
+    </linearGradient>
+    <filter id="facadeShadow" x="-10%" y="-10%" width="130%" height="130%">
+      <feDropShadow dx="14" dy="18" stdDeviation="16" flood-color="#0f172a" flood-opacity="0.35"/>
+    </filter>
+  </defs>
+
+  <!-- Sky Ground -->
+  <rect width="800" height="1000" fill="url(#skyGrad)"/>
+
+  <!-- Golden Hour Lagos Sun -->
+  <circle cx="480" cy="300" r="160" fill="url(#goldSun)" opacity="0.9"/>
+  <circle cx="480" cy="300" r="190" fill="none" stroke="#f59e0b" stroke-width="2" stroke-dasharray="4,8" opacity="0.6"/>
+
+  <!-- Minimalist Coastal Water Horizon Line -->
+  <line x1="0" y1="760" x2="800" y2="760" stroke="#0284c7" stroke-width="3" opacity="0.7"/>
+  <rect x="0" y="760" width="800" height="240" fill="#0369a1" opacity="0.12"/>
+
+  <!-- Brutalist Architecture Tower 1 (Deep Navy/Charcoal Monolith) -->
+  <g filter="url(#facadeShadow)">
+    <polygon points="120,860 120,380 320,320 320,860" fill="url(#concreteFacade)"/>
+    <polygon points="320,320 420,360 420,860 320,860" fill="#475569"/>
+    
+    <!-- Rhythm of Architectural Louvres / Windows -->
+    <line x1="160" y1="420" x2="280" y2="390" stroke="#94a3b8" stroke-width="5" stroke-linecap="round"/>
+    <line x1="160" y1="470" x2="280" y2="440" stroke="#94a3b8" stroke-width="5" stroke-linecap="round"/>
+    <line x1="160" y1="520" x2="280" y2="490" stroke="#94a3b8" stroke-width="5" stroke-linecap="round"/>
+    <line x1="160" y1="570" x2="280" y2="540" stroke="#94a3b8" stroke-width="5" stroke-linecap="round"/>
+    <line x1="160" y1="620" x2="280" y2="590" stroke="#94a3b8" stroke-width="5" stroke-linecap="round"/>
+    <line x1="160" y1="670" x2="280" y2="640" stroke="#94a3b8" stroke-width="5" stroke-linecap="round"/>
+  </g>
+
+  <!-- Brutalist Terracotta Cantilever Block -->
+  <g filter="url(#facadeShadow)">
+    <polygon points="340,880 340,460 560,420 560,880" fill="url(#terracottaFacade)"/>
+    <polygon points="560,420 640,450 640,880 560,880" fill="#7c2d12"/>
+
+    <!-- Geometric Window Openings -->
+    <rect x="380" y="490" width="45" height="75" fill="#fef3c7" rx="4"/>
+    <rect x="460" y="480" width="45" height="75" fill="#fef3c7" rx="4"/>
+    <rect x="380" y="600" width="45" height="75" fill="#1e293b" rx="4"/>
+    <rect x="460" y="590" width="45" height="75" fill="#fef3c7" rx="4"/>
+  </g>
+
+  <!-- Foreground Concrete Staircase / Geometric Plinth -->
+  <polygon points="60,940 740,940 680,820 120,820" fill="#1e1b18"/>
+  <line x1="60" y1="940" x2="740" y2="940" stroke="#d4af37" stroke-width="4"/>
+
+  <!-- Minimalist Typography Detail -->
+  <text x="140" y="900" font-family="'Inter', sans-serif" font-size="12" letter-spacing="4" fill="#f8fafc" font-weight="600">EKO ATLANTIC • ARCHITECTURAL STUDY 04</text>
+</svg>

@@ -1,0 +1,113 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 1600" width="1200" height="1600">
+  <defs>
+    <linearGradient id="nightSky" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#02040a" />
+      <stop offset="50%" stop-color="#0a0e1c" />
+      <stop offset="100%" stop-color="#140a26" />
+    </linearGradient>
+
+    <linearGradient id="lagoonWater" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#090514" />
+      <stop offset="50%" stop-color="#050811" />
+      <stop offset="100%" stop-color="#010206" />
+    </linearGradient>
+
+    <linearGradient id="electricGold" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#ffe66d" />
+      <stop offset="50%" stop-color="#ffd166" />
+      <stop offset="100%" stop-color="#f78c6b" />
+    </linearGradient>
+
+    <linearGradient id="cyberTurquoise" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#48cae4" />
+      <stop offset="50%" stop-color="#0096c7" />
+      <stop offset="100%" stop-color="#03045e" />
+    </linearGradient>
+
+    <linearGradient id="neonPink" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#ff4d6d" />
+      <stop offset="100%" stop-color="#c9184a" />
+    </linearGradient>
+
+    <filter id="skyglow" x="-20%" y="-20%" width="140%" height="140%">
+      <feGaussianBlur stdDeviation="20" result="glow" />
+      <feMerge>
+        <feMergeNode in="glow" />
+        <feMergeNode in="SourceGraphic" />
+      </feMerge>
+    </filter>
+  </defs>
+
+  <!-- Sky Canvas -->
+  <rect width="1200" height="1600" fill="url(#nightSky)" />
+
+  <!-- Ambient Neon Horizon Glow -->
+  <ellipse cx="600" cy="850" rx="550" ry="180" fill="url(#neonPink)" opacity="0.3" filter="url(#skyglow)" />
+  <ellipse cx="600" cy="880" rx="420" ry="90" fill="url(#electricGold)" opacity="0.4" filter="url(#skyglow)" />
+
+  <!-- Victoria Island Towers Silhouettes & Neon Edge Traces -->
+  <!-- Tower 1 (Left Highrise) -->
+  <rect x="120" y="520" width="110" height="400" fill="#080c16" />
+  <rect x="120" y="520" width="110" height="6" fill="url(#cyberTurquoise)" filter="url(#skyglow)" />
+  <!-- Illuminated Windows Array -->
+  <g fill="url(#electricGold)" opacity="0.75">
+    <rect x="135" y="550" width="12" height="18" />
+    <rect x="160" y="550" width="12" height="18" />
+    <rect x="185" y="550" width="12" height="18" />
+    <rect x="135" y="590" width="12" height="18" />
+    <rect x="185" y="590" width="12" height="18" />
+    <rect x="160" y="630" width="12" height="18" />
+    <rect x="135" y="670" width="12" height="18" />
+    <rect x="160" y="670" width="12" height="18" />
+    <rect x="185" y="670" width="12" height="18" />
+  </g>
+
+  <!-- Tower 2 (Slender Spire) -->
+  <polygon points="270,920 270,380 290,280 310,380 310,920" fill="#0b0f1c" />
+  <line x1="290" y1="280" x2="290" y2="920" stroke="url(#neonPink)" stroke-width="4" filter="url(#skyglow)" />
+
+  <!-- Tower 3 (Central Iconic Highrise) -->
+  <polygon points="400,920 400,450 480,360 560,450 560,920" fill="#070a13" />
+  <path d="M 400 450 L 480 360 L 560 450" stroke="url(#electricGold)" stroke-width="6" fill="none" filter="url(#skyglow)" />
+  <!-- Vertical Light Channels -->
+  <line x1="450" y1="460" x2="450" y2="920" stroke="url(#cyberTurquoise)" stroke-width="3" opacity="0.8" />
+  <line x1="510" y1="460" x2="510" y2="920" stroke="url(#cyberTurquoise)" stroke-width="3" opacity="0.8" />
+
+  <!-- Tower 4 (Curved Modern Architecture) -->
+  <path d="M 620 920 L 620 480 C 620 440, 780 440, 780 480 L 780 920 Z" fill="#090d18" />
+  <path d="M 620 480 C 620 440, 780 440, 780 480" stroke="url(#neonPink)" stroke-width="8" fill="none" filter="url(#skyglow)" />
+  
+  <!-- Tower 5 (Right Terrace Tower) -->
+  <polygon points="840,920 840,580 920,580 920,640 1020,640 1020,920" fill="#050811" />
+  <line x1="840" y1="580" x2="920" y2="580" stroke="url(#electricGold)" stroke-width="4" filter="url(#skyglow)" />
+  <line x1="920" y1="640" x2="1020" y2="640" stroke="url(#cyberTurquoise)" stroke-width="4" filter="url(#skyglow)" />
+
+  <!-- Lagos Lagoon Water Plane -->
+  <rect x="0" y="920" width="1200" height="680" fill="url(#lagoonWater)" />
+
+  <!-- Shimmering Neon Water Wave Reflections -->
+  <g filter="url(#skyglow)">
+    <line x1="140" y1="950" x2="220" y2="950" stroke="url(#cyberTurquoise)" stroke-width="8" opacity="0.8" stroke-linecap="round" />
+    <line x1="270" y1="960" x2="310" y2="960" stroke="url(#neonPink)" stroke-width="6" opacity="0.85" stroke-linecap="round" />
+    <line x1="420" y1="955" x2="540" y2="955" stroke="url(#electricGold)" stroke-width="12" opacity="0.9" stroke-linecap="round" />
+    <line x1="640" y1="960" x2="760" y2="960" stroke="url(#neonPink)" stroke-width="10" opacity="0.8" stroke-linecap="round" />
+
+    <line x1="120" y1="1020" x2="240" y2="1020" stroke="url(#cyberTurquoise)" stroke-width="6" opacity="0.7" stroke-linecap="round" />
+    <line x1="390" y1="1040" x2="570" y2="1040" stroke="url(#electricGold)" stroke-width="14" opacity="0.85" stroke-linecap="round" />
+    <line x1="630" y1="1030" x2="770" y2="1030" stroke="url(#neonPink)" stroke-width="8" opacity="0.75" stroke-linecap="round" />
+
+    <line x1="360" y1="1140" x2="600" y2="1140" stroke="url(#electricGold)" stroke-width="10" opacity="0.7" stroke-linecap="round" />
+    <line x1="620" y1="1160" x2="780" y2="1160" stroke="url(#neonPink)" stroke-width="6" opacity="0.65" stroke-linecap="round" />
+    
+    <line x1="420" y1="1280" x2="540" y2="1280" stroke="url(#electricGold)" stroke-width="8" opacity="0.6" stroke-linecap="round" />
+    <line x1="460" y1="1400" x2="500" y2="1400" stroke="url(#electricGold)" stroke-width="6" opacity="0.5" stroke-linecap="round" />
+  </g>
+
+  <!-- App Connectivity Badge -->
+  <rect x="420" y="1460" width="360" height="42" rx="21" fill="#02040a" stroke="url(#neonPink)" stroke-width="1.5" />
+  <text x="600" y="1487" font-family="'Inter', sans-serif" font-size="12" font-weight="600" fill="url(#neonPink)" letter-spacing="3" text-anchor="middle">APP-CONTROLLED NEON MATRIX</text>
+
+  <!-- Studio Monogram -->
+  <text x="1080" y="1530" font-family="'Inter', sans-serif" font-size="15" font-weight="600" fill="#ffffff" letter-spacing="4" text-anchor="end" opacity="0.7">PRINTSCRAFTER • LEKKI ATELIER</text>
+  <text x="1080" y="1555" font-family="'Playfair Display', serif" font-size="13" font-style="italic" fill="url(#electricGold)" text-anchor="end">Neon Eko Skyline • Smart Sound-Reactive</text>
+</svg>

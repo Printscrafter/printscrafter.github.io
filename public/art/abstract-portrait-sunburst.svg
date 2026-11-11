@@ -1,0 +1,111 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 1600" width="1200" height="1600">
+  <defs>
+    <linearGradient id="warmOatBg" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#fbf7ee" />
+      <stop offset="100%" stop-color="#f0e6d2" />
+    </linearGradient>
+
+    <linearGradient id="sunburstOrange" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#ffb703" />
+      <stop offset="50%" stop-color="#fb8500" />
+      <stop offset="100%" stop-color="#d9480f" />
+    </linearGradient>
+
+    <linearGradient id="emeraldGlass" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#10b981" />
+      <stop offset="50%" stop-color="#059669" />
+      <stop offset="100%" stop-color="#064e3b" />
+    </linearGradient>
+
+    <linearGradient id="charcoalSilhouette" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#1f242e" />
+      <stop offset="100%" stop-color="#0e1118" />
+    </linearGradient>
+
+    <linearGradient id="goldAccentSun" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#ffe066" />
+      <stop offset="100%" stop-color="#d4af37" />
+    </linearGradient>
+
+    <filter id="sunDrop" x="-15%" y="-15%" width="130%" height="130%">
+      <feDropShadow dx="10" dy="22" stdDeviation="24" flood-color="#3d2817" flood-opacity="0.22" />
+    </filter>
+  </defs>
+
+  <!-- Warm Off-White Linen Ground -->
+  <rect width="1200" height="1600" fill="url(#warmOatBg)" />
+
+  <!-- Giant Radiating Sunburst Aura (32 Rays + Core Disk) -->
+  <g filter="url(#sunDrop)">
+    <!-- Sun Rays Array -->
+    <g stroke="url(#sunburstOrange)" stroke-width="12" stroke-linecap="round" opacity="0.65">
+      <line x1="600" y1="580" x2="600" y2="120" />
+      <line x1="600" y1="580" x2="600" y2="1040" />
+      <line x1="600" y1="580" x2="140" y2="580" />
+      <line x1="600" y1="580" x2="1060" y2="580" />
+
+      <line x1="600" y1="580" x2="275" y2="255" />
+      <line x1="600" y1="580" x2="925" y2="255" />
+      <line x1="600" y1="580" x2="275" y2="905" />
+      <line x1="600" y1="580" x2="925" y2="905" />
+
+      <line x1="600" y1="580" x2="420" y2="170" stroke-width="8" />
+      <line x1="600" y1="580" x2="780" y2="170" stroke-width="8" />
+      <line x1="600" y1="580" x2="420" y2="990" stroke-width="8" />
+      <line x1="600" y1="580" x2="780" y2="990" stroke-width="8" />
+
+      <line x1="600" y1="580" x2="190" y2="400" stroke-width="8" />
+      <line x1="600" y1="580" x2="1010" y2="400" stroke-width="8" />
+      <line x1="600" y1="580" x2="190" y2="760" stroke-width="8" />
+      <line x1="600" y1="580" x2="1010" y2="760" stroke-width="8" />
+    </g>
+
+    <!-- Outer Concentric Sun Rings -->
+    <circle cx="600" cy="580" r="380" fill="url(#sunburstOrange)" opacity="0.3" />
+    <circle cx="600" cy="580" r="280" fill="url(#sunburstOrange)" opacity="0.85" />
+    <circle cx="600" cy="580" r="210" fill="url(#goldAccentSun)" />
+  </g>
+
+  <!-- Avant-Garde Charcoal Abstract Face Silhouette -->
+  <g filter="url(#sunDrop)">
+    <!-- Monumental Silhouette Profile -->
+    <path d="M 440 320 C 580 260, 740 320, 780 480 C 800 580, 780 720, 710 820 L 730 1140 L 480 1140 L 460 760 C 410 700, 390 560, 410 460 Z" fill="url(#charcoalSilhouette)" />
+
+    <!-- Sculptural High-Fashion Headwrap / Top Knot -->
+    <path d="M 520 320 C 460 180, 680 120, 740 240 C 780 200, 840 260, 800 340 Z" fill="url(#goldAccentSun)" />
+    <circle cx="620" cy="220" r="45" fill="url(#sunburstOrange)" />
+
+    <!-- Avant-Garde Emerald Hexagonal Sunglasses -->
+    <g filter="url(#sunDrop)">
+      <!-- Left Lens Frame -->
+      <polygon points="450,560 550,530 580,590 540,650 440,640 420,590" fill="url(#emeraldGlass)" stroke="url(#goldAccentSun)" stroke-width="6" />
+      <!-- Right Lens Frame -->
+      <polygon points="620,520 720,550 740,610 680,660 590,640 580,580" fill="url(#emeraldGlass)" stroke="url(#goldAccentSun)" stroke-width="6" />
+      <!-- Bridge -->
+      <line x1="550" y1="560" x2="620" y2="550" stroke="url(#goldAccentSun)" stroke-width="8" stroke-linecap="round" />
+      <!-- Lens High-Gloss White Highlights -->
+      <polygon points="460,570 520,550 510,580 455,595" fill="#ffffff" opacity="0.6" />
+      <polygon points="630,545 690,565 680,595 625,575" fill="#ffffff" opacity="0.6" />
+    </g>
+
+    <!-- Stylized Geometric Terracotta Lips -->
+    <polygon points="560,740 600,725 640,740 600,770" fill="url(#sunburstOrange)" />
+    <polygon points="570,740 600,735 630,740 600,755" fill="#ffffff" opacity="0.8" />
+
+    <!-- Statement Golden Sun Hoop Earring -->
+    <circle cx="780" cy="720" r="85" fill="none" stroke="url(#goldAccentSun)" stroke-width="16" />
+    <circle cx="780" cy="720" r="50" fill="url(#sunburstOrange)" opacity="0.7" />
+  </g>
+
+  <!-- Architectural Shoulders & Modern Apparel Lines -->
+  <g filter="url(#sunDrop)">
+    <polygon points="260,1600 480,1140 730,1140 960,1600" fill="url(#charcoalSilhouette)" />
+    <!-- V-Neck Golden Lapel -->
+    <polygon points="480,1140 600,1380 570,1400 440,1160" fill="url(#goldAccentSun)" />
+    <polygon points="730,1140 600,1380 630,1400 770,1160" fill="url(#sunburstOrange)" />
+  </g>
+
+  <!-- Studio Monogram -->
+  <text x="1080" y="1530" font-family="'Inter', sans-serif" font-size="15" font-weight="600" fill="#0e1118" letter-spacing="4" text-anchor="end" opacity="0.6">PRINTSCRAFTER • LEKKI ATELIER</text>
+  <text x="1080" y="1555" font-family="'Playfair Display', serif" font-size="13" font-style="italic" fill="#fb8500" text-anchor="end" opacity="0.9">Lekki Sunburst Muse • Abstract</text>
+</svg>

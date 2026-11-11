@@ -1,0 +1,81 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 1600" width="1200" height="1600">
+  <defs>
+    <linearGradient id="warmPlaster" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#f5f0e6" />
+      <stop offset="100%" stop-color="#e8e0d0" />
+    </linearGradient>
+
+    <linearGradient id="smokedOak" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#4a3728" />
+      <stop offset="50%" stop-color="#694e39" />
+      <stop offset="100%" stop-color="#3b2b1f" />
+    </linearGradient>
+
+    <linearGradient id="brassPeg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#ffe494" />
+      <stop offset="40%" stop-color="#d4af37" />
+      <stop offset="100%" stop-color="#8c6f1a" />
+    </linearGradient>
+
+    <linearGradient id="terracottaHalf" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#cf6146" />
+      <stop offset="100%" stop-color="#993822" />
+    </linearGradient>
+
+    <filter id="foyerShadow" x="-10%" y="-10%" width="120%" height="120%">
+      <feDropShadow dx="12" dy="24" stdDeviation="22" flood-color="#2d231b" flood-opacity="0.25" />
+    </filter>
+  </defs>
+
+  <!-- Warm Artisanal Plaster Canvas -->
+  <rect width="1200" height="1600" fill="url(#warmPlaster)" />
+
+  <!-- Sculptural Arch Floating Shelf Backdrop -->
+  <path d="M 240 1420 L 240 680 C 240 420, 960 420, 960 680 L 960 1420 Z" fill="url(#terracottaHalf)" filter="url(#foyerShadow)" />
+
+  <!-- Inner Architectural Cutout (Plaster relief) -->
+  <path d="M 320 1420 L 320 720 C 320 520, 880 520, 880 720 L 880 1420 Z" fill="url(#warmPlaster)" />
+
+  <!-- Top Floating Celestial Sun Mirror Disk -->
+  <circle cx="600" cy="460" r="160" fill="url(#brassPeg)" filter="url(#foyerShadow)" />
+  <circle cx="600" cy="460" r="135" fill="#f5f0e6" />
+  <circle cx="600" cy="460" r="115" fill="none" stroke="url(#brassPeg)" stroke-width="4" stroke-dasharray="6 10" />
+
+  <!-- Fluted Wood Architectural Slats (Lower Panel Section) -->
+  <g filter="url(#foyerShadow)">
+    <rect x="360" y="820" width="35" height="520" rx="8" fill="url(#smokedOak)" />
+    <rect x="420" y="820" width="35" height="520" rx="8" fill="url(#smokedOak)" />
+    <rect x="480" y="820" width="35" height="520" rx="8" fill="url(#smokedOak)" />
+    <rect x="540" y="820" width="35" height="520" rx="8" fill="url(#smokedOak)" />
+    <rect x="600" y="820" width="35" height="520" rx="8" fill="url(#smokedOak)" />
+    <rect x="660" y="820" width="35" height="520" rx="8" fill="url(#smokedOak)" />
+    <rect x="720" y="820" width="35" height="520" rx="8" fill="url(#smokedOak)" />
+    <rect x="780" y="820" width="35" height="520" rx="8" fill="url(#smokedOak)" />
+  </g>
+
+  <!-- Curated Functional Floating Brass Pegs & Key Catchall Hooks -->
+  <g filter="url(#foyerShadow)">
+    <!-- Hook 1 (Left) -->
+    <circle cx="437" cy="1120" r="28" fill="url(#brassPeg)" />
+    <circle cx="437" cy="1120" r="14" fill="#694e39" />
+    <path d="M 437 1148 L 437 1180 Q 437 1205 460 1205" stroke="url(#brassPeg)" stroke-width="10" stroke-linecap="round" fill="none" />
+
+    <!-- Hook 2 (Center) -->
+    <circle cx="597" cy="1120" r="28" fill="url(#brassPeg)" />
+    <circle cx="597" cy="1120" r="14" fill="#694e39" />
+    <path d="M 597 1148 L 597 1180 Q 597 1205 620 1205" stroke="url(#brassPeg)" stroke-width="10" stroke-linecap="round" fill="none" />
+
+    <!-- Hook 3 (Right) -->
+    <circle cx="757" cy="1120" r="28" fill="url(#brassPeg)" />
+    <circle cx="757" cy="1120" r="14" fill="#694e39" />
+    <path d="M 757 1148 L 757 1180 Q 757 1205 780 1205" stroke="url(#brassPeg)" stroke-width="10" stroke-linecap="round" fill="none" />
+  </g>
+
+  <!-- Magnetic Key Catchall Indicator Pill -->
+  <rect x="420" y="1460" width="360" height="42" rx="21" fill="#4a3728" stroke="url(#brassPeg)" stroke-width="1.5" />
+  <text x="600" y="1487" font-family="'Inter', sans-serif" font-size="12" font-weight="600" fill="url(#brassPeg)" letter-spacing="3" text-anchor="middle">FUNCTIONAL KEY &amp; COAT HOOKS</text>
+
+  <!-- Studio Monogram -->
+  <text x="1080" y="1530" font-family="'Inter', sans-serif" font-size="15" font-weight="600" fill="#3b2b1f" letter-spacing="4" text-anchor="end" opacity="0.7">PRINTSCRAFTER • LEKKI ATELIER</text>
+  <text x="1080" y="1555" font-family="'Playfair Display', serif" font-size="13" font-style="italic" fill="#993822" text-anchor="end">Fluted Oak Catchall • Functional Foyer Art</text>
+</svg>

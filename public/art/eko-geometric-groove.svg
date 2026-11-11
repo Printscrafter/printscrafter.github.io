@@ -1,0 +1,64 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 1600" width="1200" height="1600">
+  <defs>
+    <linearGradient id="warmOchreBg" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#fdf8f0" />
+      <stop offset="100%" stop-color="#f3ead8" />
+    </linearGradient>
+
+    <linearGradient id="indigoDeep" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#1f2c4c" />
+      <stop offset="100%" stop-color="#0e172a" />
+    </linearGradient>
+
+    <linearGradient id="terracottaSun" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#e26d5c" />
+      <stop offset="100%" stop-color="#b83b28" />
+    </linearGradient>
+
+    <linearGradient id="mustardArch" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#f4c430" />
+      <stop offset="100%" stop-color="#ca8a04" />
+    </linearGradient>
+
+    <filter id="grooveShadow" x="-10%" y="-10%" width="120%" height="120%">
+      <feDropShadow dx="10" dy="20" stdDeviation="20" flood-color="#1a1c22" flood-opacity="0.16" />
+    </filter>
+  </defs>
+
+  <!-- Cream Base -->
+  <rect width="1200" height="1600" fill="url(#warmOchreBg)" />
+
+  <!-- Giant Terracotta Sun Horizon -->
+  <circle cx="600" cy="500" r="320" fill="url(#terracottaSun)" filter="url(#grooveShadow)" />
+
+  <!-- Interlocking Modern Minimalist Shapes -->
+  <!-- Mustard Giant Arch (Left) -->
+  <path d="M 220 1480 L 220 850 C 220 620, 680 620, 680 850 L 680 1480 Z" fill="url(#mustardArch)" filter="url(#grooveShadow)" />
+
+  <!-- Deep Indigo Quadrant (Right) -->
+  <path d="M 600 780 A 380 380 0 0 1 980 1160 L 600 1160 Z" fill="url(#indigoDeep)" filter="url(#grooveShadow)" />
+
+  <!-- Inverted Cream Arch Window Cutout -->
+  <path d="M 320 1480 L 320 950 C 320 780, 580 780, 580 950 L 580 1480 Z" fill="url(#warmOchreBg)" />
+
+  <!-- Rhythmic Geometric Stripe Accents -->
+  <g fill="url(#indigoDeep)">
+    <rect x="360" y="1050" width="20" height="430" rx="10" />
+    <rect x="410" y="1050" width="20" height="430" rx="10" />
+    <rect x="460" y="1050" width="20" height="430" rx="10" />
+    <rect x="510" y="1050" width="20" height="430" rx="10" />
+  </g>
+
+  <!-- Black Floating Balance Stones (Zen Afro Modernism) -->
+  <circle cx="820" cy="420" r="90" fill="url(#indigoDeep)" filter="url(#grooveShadow)" />
+  <circle cx="820" cy="420" r="50" fill="#fdf8f0" />
+  <circle cx="820" cy="420" r="20" fill="url(#terracottaSun)" />
+
+  <!-- Slender Diagonal Line Rhythms -->
+  <line x1="160" y1="280" x2="1040" y2="280" stroke="#0e172a" stroke-width="4" stroke-dasharray="8 12" />
+  <line x1="240" y1="220" x2="960" y2="220" stroke="url(#terracottaSun)" stroke-width="5" />
+
+  <!-- Studio Monogram -->
+  <text x="1080" y="1530" font-family="'Inter', sans-serif" font-size="15" font-weight="600" fill="#0e172a" letter-spacing="4" text-anchor="end" opacity="0.6">PRINTSCRAFTER • LEKKI ATELIER</text>
+  <text x="1080" y="1555" font-family="'Playfair Display', serif" font-size="13" font-style="italic" fill="#b83b28" text-anchor="end">Eko Geometric Groove • Shape &amp; Abstract Art</text>
+</svg>

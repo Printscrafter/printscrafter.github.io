@@ -1,0 +1,77 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 1600" width="1200" height="1600">
+  <defs>
+    <linearGradient id="midnightNavy" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#18233c" />
+      <stop offset="100%" stop-color="#0c111e" />
+    </linearGradient>
+
+    <linearGradient id="clayRust" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#cf5c36" />
+      <stop offset="100%" stop-color="#933318" />
+    </linearGradient>
+
+    <linearGradient id="mustardGold" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#f4c430" />
+      <stop offset="100%" stop-color="#c69214" />
+    </linearGradient>
+
+    <linearGradient id="creamCanvas" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#f4efe6" />
+      <stop offset="100%" stop-color="#eae2d5" />
+    </linearGradient>
+
+    <filter id="bauhausShadow" x="-10%" y="-10%" width="120%" height="120%">
+      <feDropShadow dx="14" dy="24" stdDeviation="22" flood-color="#0a0f1d" flood-opacity="0.25" />
+    </filter>
+  </defs>
+
+  <!-- Cream Archival Paper -->
+  <rect width="1200" height="1600" fill="url(#creamCanvas)" />
+
+  <!-- Grid / Linear Structure Lines -->
+  <line x1="200" y1="100" x2="200" y2="1500" stroke="#cfc8bb" stroke-width="2" stroke-dasharray="6 8" />
+  <line x1="600" y1="100" x2="600" y2="1500" stroke="#cfc8bb" stroke-width="2" stroke-dasharray="6 8" />
+  <line x1="1000" y1="100" x2="1000" y2="1500" stroke="#cfc8bb" stroke-width="2" stroke-dasharray="6 8" />
+  <line x1="100" y1="400" x2="1100" y2="400" stroke="#cfc8bb" stroke-width="2" stroke-dasharray="6 8" />
+  <line x1="100" y1="800" x2="1100" y2="800" stroke="#cfc8bb" stroke-width="2" stroke-dasharray="6 8" />
+  <line x1="100" y1="1200" x2="1100" y2="1200" stroke="#cfc8bb" stroke-width="2" stroke-dasharray="6 8" />
+
+  <!-- Giant Midnight Semicircle Arch (Top Section) -->
+  <g filter="url(#bauhausShadow)">
+    <path d="M 200 680 A 400 400 0 0 1 1000 680 Z" fill="url(#midnightNavy)" />
+  </g>
+
+  <!-- Terracotta Giant Sphere (Focal Center) -->
+  <circle cx="480" cy="880" r="240" fill="url(#clayRust)" filter="url(#bauhausShadow)" />
+
+  <!-- Mustard Gold Sharp Diagonal Ramp -->
+  <g filter="url(#bauhausShadow)">
+    <polygon points="360,1380 1050,690 980,620 290,1310" fill="url(#mustardGold)" />
+  </g>
+
+  <!-- Inverted Midnight Semicircle (Bottom Right) -->
+  <g filter="url(#bauhausShadow)">
+    <path d="M 600 1150 A 260 260 0 0 0 1120 1150 Z" fill="url(#midnightNavy)" />
+  </g>
+
+  <!-- Bauhaus Circle Overlaps & Cutouts -->
+  <circle cx="820" cy="460" r="90" fill="#f4efe6" />
+  <circle cx="820" cy="460" r="90" fill="none" stroke="url(#clayRust)" stroke-width="12" />
+
+  <circle cx="480" cy="880" r="160" fill="none" stroke="#f4efe6" stroke-width="8" stroke-dasharray="14 16" />
+  <circle cx="480" cy="880" r="80" fill="url(#midnightNavy)" />
+
+  <!-- Minimalist Geometry Dots Array -->
+  <g fill="url(#mustardGold)">
+    <circle cx="260" cy="220" r="16" />
+    <circle cx="320" cy="220" r="16" />
+    <circle cx="380" cy="220" r="16" />
+    <circle cx="260" cy="280" r="16" />
+    <circle cx="320" cy="280" r="16" />
+    <circle cx="380" cy="280" r="16" />
+  </g>
+
+  <!-- Studio Monogram & Label -->
+  <text x="1080" y="1530" font-family="'Inter', sans-serif" font-size="15" font-weight="600" fill="#0c111e" letter-spacing="4" text-anchor="end" opacity="0.7">PRINTSCRAFTER • LEKKI ATELIER</text>
+  <text x="1080" y="1555" font-family="'Playfair Display', serif" font-size="13" font-style="italic" fill="#cf5c36" text-anchor="end" opacity="0.9">Bauhaus Geometry • Midnight &amp; Clay</text>
+</svg>

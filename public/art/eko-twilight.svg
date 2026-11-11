@@ -1,0 +1,87 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 1600" width="1200" height="1600">
+  <defs>
+    <linearGradient id="skyGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#0b132b" />
+      <stop offset="25%" stop-color="#1c2541" />
+      <stop offset="45%" stop-color="#3a1c52" />
+      <stop offset="65%" stop-color="#8c2f5e" />
+      <stop offset="80%" stop-color="#d95d39" />
+      <stop offset="95%" stop-color="#f18805" />
+      <stop offset="100%" stop-color="#f39a3e" />
+    </linearGradient>
+
+    <linearGradient id="goldSun" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#fff275" />
+      <stop offset="40%" stop-color="#f79824" />
+      <stop offset="100%" stop-color="#e0533c" />
+    </linearGradient>
+
+    <linearGradient id="waterGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#191924" />
+      <stop offset="30%" stop-color="#211d38" />
+      <stop offset="70%" stop-color="#0e1726" />
+      <stop offset="100%" stop-color="#070a13" />
+    </linearGradient>
+
+    <linearGradient id="foilGold" x1="0%" y1="0%" x2="100%" y2="50%">
+      <stop offset="0%" stop-color="#ffe27a" />
+      <stop offset="25%" stop-color="#d4af37" />
+      <stop offset="50%" stop-color="#fff8db" />
+      <stop offset="75%" stop-color="#aa7c11" />
+      <stop offset="100%" stop-color="#f3d061" />
+    </linearGradient>
+
+    <radialGradient id="sunGlow" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#ffb703" stop-opacity="0.8" />
+      <stop offset="40%" stop-color="#fb8500" stop-opacity="0.3" />
+      <stop offset="100%" stop-color="#0b132b" stop-opacity="0" />
+    </radialGradient>
+
+    <filter id="canvasTexture" x="0%" y="0%" width="100%" height="100%">
+      <feTurbulence type="fractalNoise" baseFrequency="0.04" numOctaves="4" result="noise" />
+      <feColorMatrix type="matrix" values="1 0 0 0 0  0 1 0 0 0  0 0 1 0 0  0 0 0 0.08 0" />
+      <feBlend mode="multiply" in="SourceGraphic" />
+    </filter>
+  </defs>
+
+  <!-- Sky Canvas -->
+  <rect width="1200" height="1600" fill="url(#skyGrad)" />
+
+  <!-- Textured Noise Overlay -->
+  <rect width="1200" height="1600" filter="url(#canvasTexture)" opacity="0.45" />
+
+  <!-- Distant Glowing Lagoon Sun -->
+  <circle cx="600" cy="880" r="380" fill="url(#sunGlow)" />
+  <circle cx="600" cy="880" r="160" fill="url(#goldSun)" />
+
+  <!-- Contemporary Abstract Architectural Silhouette / Lagos Island Skyline -->
+  <!-- Low Layer / Skyline Blocks -->
+  <path d="M 80 940 L 140 940 L 140 820 L 210 820 L 210 940 L 320 940 L 320 740 L 390 740 L 390 940 L 460 940 L 460 690 L 520 690 L 520 940 L 590 940 L 590 620 L 660 620 L 660 940 L 740 940 L 740 700 L 810 700 L 810 940 L 880 940 L 880 770 L 960 770 L 960 940 L 1050 940 L 1050 830 L 1120 830 L 1120 940 Z" fill="#0d1117" opacity="0.9" />
+
+  <!-- Diagonal Geometric Accent Strokes (Impasto Painting Knife Strokes) -->
+  <polygon points="120,400 380,360 410,380 140,430" fill="url(#foilGold)" opacity="0.75" />
+  <polygon points="760,280 1060,340 1020,380 720,310" fill="url(#foilGold)" opacity="0.8" />
+  <polygon points="200,600 480,560 460,590 190,620" fill="#f18805" opacity="0.4" />
+  <polygon points="700,500 1080,560 1050,600 680,530" fill="#d95d39" opacity="0.5" />
+
+  <!-- Water Surface & Reflections -->
+  <rect x="0" y="940" width="1200" height="660" fill="url(#waterGrad)" />
+
+  <!-- Water Ripple Oil Brushstrokes -->
+  <path d="M 450 970 Q 600 950 750 970 T 1050 970" stroke="url(#foilGold)" stroke-width="12" stroke-linecap="round" fill="none" opacity="0.85" />
+  <path d="M 380 1010 Q 600 980 820 1010 T 1120 1010" stroke="#f18805" stroke-width="9" stroke-linecap="round" fill="none" opacity="0.7" />
+  <path d="M 490 1060 Q 600 1030 710 1060 T 960 1060" stroke="url(#foilGold)" stroke-width="14" stroke-linecap="round" fill="none" opacity="0.9" />
+  <path d="M 280 1120 Q 600 1080 920 1120" stroke="#f79824" stroke-width="10" stroke-linecap="round" fill="none" opacity="0.65" />
+  <path d="M 420 1180 Q 600 1140 780 1180 T 1020 1180" stroke="url(#foilGold)" stroke-width="16" stroke-linecap="round" fill="none" opacity="0.8" />
+  <path d="M 500 1250 Q 600 1220 700 1250" stroke="#ffffff" stroke-width="8" stroke-linecap="round" fill="none" opacity="0.8" />
+  <path d="M 320 1320 Q 600 1280 880 1320" stroke="url(#foilGold)" stroke-width="12" stroke-linecap="round" fill="none" opacity="0.75" />
+  <path d="M 460 1400 Q 600 1370 740 1400" stroke="#f18805" stroke-width="8" stroke-linecap="round" fill="none" opacity="0.6" />
+  <path d="M 520 1480 Q 600 1460 680 1480" stroke="url(#foilGold)" stroke-width="14" stroke-linecap="round" fill="none" opacity="0.85" />
+
+  <!-- Contemporary Abstract Crescent Curve Frame -->
+  <path d="M 100 200 C 300 120, 900 120, 1100 200 C 1000 150, 200 150, 100 200 Z" fill="url(#foilGold)" opacity="0.5" />
+
+  <!-- Studio Emblem -->
+  <text x="1080" y="1540" font-family="'Inter', sans-serif" font-size="16" font-weight="600" fill="#ffffff" letter-spacing="4" text-anchor="end" opacity="0.6">PRINTSCRAFTER • LEKKI ATELIER</text>
+  <text x="1080" y="1565" font-family="'Playfair Display', serif" font-size="14" font-style="italic" fill="url(#foilGold)" text-anchor="end" opacity="0.8">Eko Twilight Horizon No. 1</text>
+</svg>

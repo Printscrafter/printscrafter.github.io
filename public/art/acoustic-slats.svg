@@ -1,0 +1,86 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 1600" width="1200" height="1600">
+  <defs>
+    <linearGradient id="walnutWood" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#3d2b1f" />
+      <stop offset="30%" stop-color="#5a3d28" />
+      <stop offset="70%" stop-color="#483120" />
+      <stop offset="100%" stop-color="#2a1d15" />
+    </linearGradient>
+
+    <linearGradient id="brassMetallic" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#ecd599" />
+      <stop offset="35%" stop-color="#c59b27" />
+      <stop offset="70%" stop-color="#fae07a" />
+      <stop offset="100%" stop-color="#997017" />
+    </linearGradient>
+
+    <linearGradient id="charcoalFelt" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#1e2229" />
+      <stop offset="100%" stop-color="#14161a" />
+    </linearGradient>
+
+    <filter id="slatShadow" x="-5%" y="-5%" width="110%" height="110%">
+      <feDropShadow dx="8" dy="12" stdDeviation="10" flood-color="#000000" flood-opacity="0.45" />
+    </filter>
+
+    <filter id="archGlow" x="-10%" y="-10%" width="120%" height="120%">
+      <feDropShadow dx="0" dy="15" stdDeviation="25" flood-color="#c59b27" flood-opacity="0.3" />
+    </filter>
+  </defs>
+
+  <!-- Sound Absorbing Charcoal Felt Acoustic Backing Board -->
+  <rect width="1200" height="1600" fill="url(#charcoalFelt)" />
+
+  <!-- Acoustic Felt Texture Pattern Lines -->
+  <g stroke="#262b33" stroke-width="2" opacity="0.4">
+    <line x1="0" y1="200" x2="1200" y2="200" />
+    <line x1="0" y1="400" x2="1200" y2="400" />
+    <line x1="0" y1="600" x2="1200" y2="600" />
+    <line x1="0" y1="800" x2="1200" y2="800" />
+    <line x1="0" y1="1000" x2="1200" y2="1000" />
+    <line x1="0" y1="1200" x2="1200" y2="1200" />
+    <line x1="0" y1="1400" x2="1200" y2="1400" />
+  </g>
+
+  <!-- Architectural 3D Acoustic Fluted Slats (Natural Smoked Walnut) -->
+  <!-- 16 Fluted Slats spaced across the panel -->
+  <g filter="url(#slatShadow)">
+    <rect x="80" y="80" width="45" height="1440" rx="6" fill="url(#walnutWood)" />
+    <rect x="150" y="80" width="45" height="1440" rx="6" fill="url(#walnutWood)" />
+    <rect x="220" y="80" width="45" height="1440" rx="6" fill="url(#walnutWood)" />
+    <rect x="290" y="80" width="45" height="1440" rx="6" fill="url(#walnutWood)" />
+    <rect x="360" y="80" width="45" height="1440" rx="6" fill="url(#walnutWood)" />
+    <rect x="430" y="80" width="45" height="1440" rx="6" fill="url(#walnutWood)" />
+    <rect x="500" y="80" width="45" height="1440" rx="6" fill="url(#walnutWood)" />
+    <rect x="570" y="80" width="45" height="1440" rx="6" fill="url(#walnutWood)" />
+    <rect x="640" y="80" width="45" height="1440" rx="6" fill="url(#walnutWood)" />
+    <rect x="710" y="80" width="45" height="1440" rx="6" fill="url(#walnutWood)" />
+    <rect x="780" y="80" width="45" height="1440" rx="6" fill="url(#walnutWood)" />
+    <rect x="850" y="80" width="45" height="1440" rx="6" fill="url(#walnutWood)" />
+    <rect x="920" y="80" width="45" height="1440" rx="6" fill="url(#walnutWood)" />
+    <rect x="990" y="80" width="45" height="1440" rx="6" fill="url(#walnutWood)" />
+    <rect x="1060" y="80" width="45" height="1440" rx="6" fill="url(#walnutWood)" />
+  </g>
+
+  <!-- Overlay Sculptural Brushed Brass Geometric Arch Cutout -->
+  <g filter="url(#archGlow)">
+    <!-- Monumental Arch Ring -->
+    <path d="M 280 1200 L 280 620 C 280 440, 920 440, 920 620 L 920 1200 Z" fill="none" stroke="url(#brassMetallic)" stroke-width="28" stroke-linecap="round" />
+    <!-- Inner Concentric Brass Curve -->
+    <path d="M 360 1200 L 360 660 C 360 520, 840 520, 840 660 L 840 1200 Z" fill="none" stroke="url(#brassMetallic)" stroke-width="12" stroke-linecap="round" opacity="0.8" />
+    
+    <!-- Central Solid Brass Acoustic Deflector Disk -->
+    <circle cx="600" cy="780" r="140" fill="url(#brassMetallic)" />
+    <circle cx="600" cy="780" r="120" fill="none" stroke="#2a1d15" stroke-width="4" />
+    <circle cx="600" cy="780" r="70" fill="#2a1d15" />
+    <circle cx="600" cy="780" r="25" fill="url(#brassMetallic)" />
+  </g>
+
+  <!-- Functional Acoustic Rating Badge & Studio Spec -->
+  <rect x="100" y="1480" width="320" height="42" rx="21" fill="#14161a" stroke="url(#brassMetallic)" stroke-width="1.5" />
+  <text x="260" y="1507" font-family="'Inter', sans-serif" font-size="12" font-weight="600" fill="url(#brassMetallic)" letter-spacing="2" text-anchor="middle">NRC 0.85 SOUND ABSORBING</text>
+
+  <!-- Studio Monogram -->
+  <text x="1080" y="1530" font-family="'Inter', sans-serif" font-size="15" font-weight="600" fill="#ffffff" letter-spacing="4" text-anchor="end" opacity="0.6">PRINTSCRAFTER • LEKKI ATELIER</text>
+  <text x="1080" y="1555" font-family="'Playfair Display', serif" font-size="13" font-style="italic" fill="url(#brassMetallic)" text-anchor="end">Acoustic Slatted Rhythm • Functional Art</text>
+</svg>

@@ -1,0 +1,6 @@
+{
+  "name": "Printscrafter",
+  "description": "Custom wall art, smart LED canvas & framing studio in Lagos, Nigeria with 3D room visualizer and secure checkout.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

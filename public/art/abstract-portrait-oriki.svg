@@ -1,0 +1,108 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 1600" width="1200" height="1600">
+  <defs>
+    <linearGradient id="splitBg" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#111827" />
+      <stop offset="50%" stop-color="#1f2937" />
+      <stop offset="50%" stop-color="#0f172a" />
+      <stop offset="100%" stop-color="#030712" />
+    </linearGradient>
+
+    <linearGradient id="liquidGold" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#fff176" />
+      <stop offset="40%" stop-color="#ffd54f" />
+      <stop offset="70%" stop-color="#d4af37" />
+      <stop offset="100%" stop-color="#8c6f1a" />
+    </linearGradient>
+
+    <linearGradient id="crimsonFlame" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#ef4444" />
+      <stop offset="100%" stop-color="#991b1b" />
+    </linearGradient>
+
+    <linearGradient id="royalUltramarine" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#3b82f6" />
+      <stop offset="100%" stop-color="#1d4ed8" />
+    </linearGradient>
+
+    <filter id="orikiGlow" x="-15%" y="-15%" width="130%" height="130%">
+      <feDropShadow dx="12" dy="20" stdDeviation="22" flood-color="#000000" flood-opacity="0.6" />
+    </filter>
+  </defs>
+
+  <!-- Split Canvas Background -->
+  <rect width="1200" height="1600" fill="url(#splitBg)" />
+
+  <!-- Giant Mystical Sun Arc Behind Crown -->
+  <path d="M 150 700 C 150 300, 1050 300, 1050 700 Z" fill="url(#liquidGold)" opacity="0.35" filter="url(#orikiGlow)" />
+  <circle cx="600" cy="500" r="280" fill="none" stroke="url(#liquidGold)" stroke-width="4" stroke-dasharray="12 16" />
+
+  <!-- Royal Beaded Adenla (Coronet Crown) -->
+  <g filter="url(#orikiGlow)">
+    <polygon points="420,380 600,160 780,380" fill="url(#liquidGold)" />
+    <!-- Beaded Crown Tassels -->
+    <line x1="480" y1="380" x2="480" y2="480" stroke="url(#liquidGold)" stroke-width="6" stroke-linecap="round" />
+    <line x1="520" y1="380" x2="520" y2="520" stroke="url(#crimsonFlame)" stroke-width="6" stroke-linecap="round" />
+    <line x1="560" y1="380" x2="560" y2="550" stroke="#ffffff" stroke-width="6" stroke-linecap="round" />
+    <line x1="600" y1="380" x2="600" y2="560" stroke="url(#liquidGold)" stroke-width="8" stroke-linecap="round" />
+    <line x1="640" y1="380" x2="640" y2="550" stroke="#ffffff" stroke-width="6" stroke-linecap="round" />
+    <line x1="680" y1="380" x2="680" y2="520" stroke="url(#crimsonFlame)" stroke-width="6" stroke-linecap="round" />
+    <line x1="720" y1="380" x2="720" y2="480" stroke="url(#liquidGold)" stroke-width="6" stroke-linecap="round" />
+  </g>
+
+  <!-- Left Half: Midnight Basalt Silhouette with Single White Contour -->
+  <g filter="url(#orikiGlow)">
+    <path d="M 600 380 L 380 480 C 340 680, 420 980, 600 1100 Z" fill="#111827" stroke="#374151" stroke-width="4" />
+    
+    <!-- Delicate White Contour Line Art on Left Face -->
+    <g stroke="#ffffff" stroke-width="5" stroke-linecap="round" stroke-linejoin="round" fill="none">
+      <!-- Closed Meditative Eye & Brow -->
+      <path d="M 450 640 Q 520 620 570 660" />
+      <path d="M 480 670 Q 520 700 560 670" />
+      <!-- High Cheekbone & Temple Wave -->
+      <path d="M 420 540 C 460 580, 480 720, 460 840" />
+      <!-- Left Nose & Mouth Contour -->
+      <path d="M 590 620 L 560 760 L 590 770" />
+      <path d="M 550 820 Q 580 810 595 825" />
+    </g>
+
+    <!-- Spiritual Scarification Dots (Praise Lineage Marks) -->
+    <g fill="url(#liquidGold)">
+      <circle cx="480" cy="560" r="8" />
+      <circle cx="510" cy="550" r="8" />
+      <circle cx="540" cy="540" r="8" />
+    </g>
+  </g>
+
+  <!-- Right Half: Molten Liquid Gold, Cobalt, & Crimson Palette Knife Impasto -->
+  <g filter="url(#orikiGlow)">
+    <path d="M 600 380 L 820 480 C 860 680, 780 980, 600 1100 Z" fill="url(#royalUltramarine)" />
+    
+    <!-- Bold Liquid Gold Impasto Swaths -->
+    <polygon points="600,420 780,470 720,680 600,620" fill="url(#liquidGold)" />
+    <!-- Crimson Dynamic Slash -->
+    <polygon points="600,640 760,690 710,880 600,820" fill="url(#crimsonFlame)" />
+    <!-- Lower Gold Drip -->
+    <polygon points="600,840 730,880 660,1050 600,1020" fill="url(#liquidGold)" />
+
+    <!-- Radiant Open Eye (Symbol of Spiritual Sight / Ori) -->
+    <ellipse cx="690" cy="650" rx="45" ry="24" fill="#ffffff" />
+    <circle cx="690" cy="650" r="18" fill="#111827" />
+    <circle cx="690" cy="650" r="8" fill="url(#liquidGold)" />
+    <circle cx="695" cy="645" r="4" fill="#ffffff" />
+  </g>
+
+  <!-- Central Duality Axis Line (Golden Spear) -->
+  <line x1="600" y1="340" x2="600" y2="1280" stroke="url(#liquidGold)" stroke-width="8" stroke-linecap="round" filter="url(#orikiGlow)" />
+
+  <!-- Flowing Monumental Robe / Neck Geometry -->
+  <g filter="url(#orikiGlow)">
+    <polygon points="600,1100 360,1260 220,1600 600,1600" fill="#111827" />
+    <polygon points="600,1100 840,1260 980,1600 600,1600" fill="url(#royalUltramarine)" />
+    <!-- Golden Chevron Sash -->
+    <path d="M 380 1280 L 600 1440 L 820 1280 L 860 1340 L 600 1520 L 340 1340 Z" fill="url(#liquidGold)" />
+  </g>
+
+  <!-- Studio Signature -->
+  <text x="1080" y="1530" font-family="'Inter', sans-serif" font-size="15" font-weight="600" fill="#ffffff" letter-spacing="4" text-anchor="end" opacity="0.6">PRINTSCRAFTER • LEKKI ATELIER</text>
+  <text x="1080" y="1555" font-family="'Playfair Display', serif" font-size="13" font-style="italic" fill="url(#liquidGold)" text-anchor="end">Oriki • The Yoruba Mystic</text>
+</svg>

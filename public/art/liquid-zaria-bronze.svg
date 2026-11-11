@@ -1,0 +1,78 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 1600" width="1200" height="1600">
+  <defs>
+    <linearGradient id="deepIndigo" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#0a1128" />
+      <stop offset="50%" stop-color="#1c2541" />
+      <stop offset="100%" stop-color="#080c1d" />
+    </linearGradient>
+
+    <linearGradient id="moltenGold" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#fff176" />
+      <stop offset="30%" stop-color="#ffd54f" />
+      <stop offset="60%" stop-color="#ffa000" />
+      <stop offset="100%" stop-color="#e65100" />
+    </linearGradient>
+
+    <linearGradient id="zariaBronze" x1="0%" y1="100%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#8d5b4c" />
+      <stop offset="50%" stop-color="#c47a53" />
+      <stop offset="100%" stop-color="#563226" />
+    </linearGradient>
+
+    <linearGradient id="emeraldImpasto" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#006466" />
+      <stop offset="50%" stop-color="#065a60" />
+      <stop offset="100%" stop-color="#0b525b" />
+    </linearGradient>
+
+    <filter id="thickImpasto" x="-10%" y="-10%" width="120%" height="120%">
+      <feDropShadow dx="12" dy="24" stdDeviation="18" flood-color="#000000" flood-opacity="0.6" />
+    </filter>
+  </defs>
+
+  <!-- Deep Indigo Canvas Background -->
+  <rect width="1200" height="1600" fill="url(#deepIndigo)" />
+
+  <!-- Diagonal Palette Knife Swipes (Textured Impasto Base) -->
+  <polygon points="100,120 1100,280 1020,480 80,320" fill="url(#emeraldImpasto)" opacity="0.6" />
+  <polygon points="120,440 1120,620 1060,780 60,600" fill="url(#zariaBronze)" opacity="0.75" />
+
+  <!-- Dramatic Central Molten Bronze & Liquid Gold River (Thick Texture Knife Stroke) -->
+  <g filter="url(#thickImpasto)">
+    <path d="M 680 80 C 740 320, 520 540, 580 820 C 640 1100, 480 1320, 540 1560 L 660 1560 C 620 1320, 780 1100, 720 820 C 660 540, 860 320, 780 80 Z" fill="url(#moltenGold)" />
+  </g>
+
+  <!-- Flowing Gold Leaf Drips & Viscous Textures -->
+  <g filter="url(#thickImpasto)">
+    <!-- Main Melt Waves -->
+    <path d="M 280 680 Q 450 620 620 740 T 960 710" stroke="url(#moltenGold)" stroke-width="24" stroke-linecap="round" fill="none" />
+    <path d="M 220 820 Q 420 760 640 880 T 1020 840" stroke="url(#zariaBronze)" stroke-width="28" stroke-linecap="round" fill="none" />
+    <path d="M 320 960 Q 520 890 700 1020 T 980 970" stroke="url(#moltenGold)" stroke-width="20" stroke-linecap="round" fill="none" />
+
+    <!-- Dripping Molten Beads -->
+    <circle cx="580" cy="880" r="28" fill="url(#moltenGold)" />
+    <circle cx="580" cy="940" r="18" fill="url(#moltenGold)" />
+    <circle cx="580" cy="980" r="10" fill="url(#moltenGold)" />
+
+    <circle cx="710" cy="1060" r="24" fill="url(#moltenGold)" />
+    <circle cx="710" cy="1110" r="15" fill="url(#moltenGold)" />
+  </g>
+
+  <!-- Large Balanced Celestial Disk in Emerald & Molten Bronze -->
+  <circle cx="340" cy="420" r="180" fill="url(#zariaBronze)" opacity="0.8" filter="url(#thickImpasto)" />
+  <circle cx="340" cy="420" r="120" fill="url(#moltenGold)" opacity="0.9" />
+  <circle cx="340" cy="420" r="60" fill="#0a1128" />
+
+  <!-- Textured Knife Scrapes (Fine Shimmer Lines) -->
+  <g stroke="url(#moltenGold)" stroke-width="3" opacity="0.8">
+    <line x1="180" y1="1200" x2="380" y2="1140" />
+    <line x1="200" y1="1240" x2="420" y2="1170" />
+    <line x1="220" y1="1280" x2="440" y2="1200" />
+    <line x1="820" y1="1300" x2="1040" y2="1220" />
+    <line x1="800" y1="1340" x2="1020" y2="1260" />
+  </g>
+
+  <!-- Studio Monogram -->
+  <text x="1080" y="1530" font-family="'Inter', sans-serif" font-size="15" font-weight="600" fill="#ffffff" letter-spacing="4" text-anchor="end" opacity="0.7">PRINTSCRAFTER • LEKKI ATELIER</text>
+  <text x="1080" y="1555" font-family="'Playfair Display', serif" font-size="13" font-style="italic" fill="url(#moltenGold)" text-anchor="end">Liquid Zaria Bronze • Contemporary Painting</text>
+</svg>

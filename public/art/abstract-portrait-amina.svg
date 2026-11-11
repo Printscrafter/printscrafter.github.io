@@ -1,0 +1,130 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 1600" width="1200" height="1600">
+  <defs>
+    <linearGradient id="bgIndigo" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#0f172a" />
+      <stop offset="50%" stop-color="#1e1b4b" />
+      <stop offset="100%" stop-color="#090d16" />
+    </linearGradient>
+
+    <linearGradient id="goldLeafGild" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#fff275" />
+      <stop offset="25%" stop-color="#f7b731" />
+      <stop offset="60%" stop-color="#d4af37" />
+      <stop offset="85%" stop-color="#aa7c11" />
+      <stop offset="100%" stop-color="#f5cd47" />
+    </linearGradient>
+
+    <linearGradient id="terracottaPlane" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#e06d53" />
+      <stop offset="50%" stop-color="#c1492d" />
+      <stop offset="100%" stop-color="#8a2e19" />
+    </linearGradient>
+
+    <linearGradient id="ochreWarm" x1="0%" y1="100%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#e5a93b" />
+      <stop offset="100%" stop-color="#b87b1c" />
+    </linearGradient>
+
+    <linearGradient id="cobaltDeep" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#2563eb" />
+      <stop offset="100%" stop-color="#1e3a8a" />
+    </linearGradient>
+
+    <filter id="cubistDrop" x="-15%" y="-15%" width="130%" height="130%">
+      <feDropShadow dx="14" dy="24" stdDeviation="20" flood-color="#000000" flood-opacity="0.45" />
+    </filter>
+
+    <filter id="softGazeGlow" x="-20%" y="-20%" width="140%" height="140%">
+      <feGaussianBlur stdDeviation="30" result="blur" />
+      <feMerge>
+        <feMergeNode in="blur" />
+        <feMergeNode in="SourceGraphic" />
+      </feMerge>
+    </filter>
+  </defs>
+
+  <!-- Deep Midnight Canvas -->
+  <rect width="1200" height="1600" fill="url(#bgIndigo)" />
+
+  <!-- Ambient Radiant Halo Behind Portrait (Warrior Queen Aura) -->
+  <circle cx="600" cy="620" r="420" fill="url(#goldLeafGild)" opacity="0.22" filter="url(#softGazeGlow)" />
+  <circle cx="600" cy="620" r="320" fill="url(#ochreWarm)" opacity="0.35" />
+
+  <!-- Geometric Architectural Neck & Shoulder Blocks -->
+  <g filter="url(#cubistDrop)">
+    <!-- Base Shoulder Sweep -->
+    <polygon points="120,1600 480,1080 600,1600" fill="#141926" />
+    <polygon points="600,1600 720,1080 1080,1600" fill="url(#terracottaPlane)" />
+    
+    <!-- Sculptural Long Neck (Faceted Cubist Planes) -->
+    <polygon points="480,1080 570,780 650,780 600,1180" fill="url(#ochreWarm)" />
+    <polygon points="570,780 670,780 720,1080 600,1180" fill="#8a2e19" />
+    
+    <!-- Royal Choker Bands (Tiered Brass Collar) -->
+    <path d="M 490 1020 Q 600 1060 710 1020" stroke="url(#goldLeafGild)" stroke-width="18" fill="none" stroke-linecap="round" />
+    <path d="M 510 1070 Q 600 1110 690 1070" stroke="url(#goldLeafGild)" stroke-width="14" fill="none" stroke-linecap="round" />
+    <path d="M 530 1120 Q 600 1160 670 1120" stroke="url(#goldLeafGild)" stroke-width="12" fill="none" stroke-linecap="round" />
+  </g>
+
+  <!-- Cubist Faceted Head & Crown Silhouette -->
+  <g filter="url(#cubistDrop)">
+    <!-- Angular Crown Diadem -->
+    <polygon points="380,340 600,200 820,340 760,420 440,420" fill="url(#goldLeafGild)" />
+    <circle cx="600" cy="280" r="24" fill="#0f172a" />
+    <circle cx="600" cy="280" r="14" fill="url(#goldLeafGild)" />
+
+    <!-- Left Facet (Deep Terracotta & Ochre) -->
+    <polygon points="440,420 600,380 600,780 430,720 390,560" fill="url(#terracottaPlane)" />
+
+    <!-- Right Facet (Lapis / Cobalt & Shadow) -->
+    <polygon points="600,380 760,420 810,560 770,720 600,780" fill="url(#cobaltDeep)" />
+
+    <!-- Central Cheekbone Blade (Radiant Gold Plane) -->
+    <polygon points="600,380 660,520 600,680 540,520" fill="url(#goldLeafGild)" opacity="0.9" />
+
+    <!-- Brow Ridge -->
+    <polygon points="450,490 600,470 750,490 730,520 600,500 470,520" fill="#090d16" />
+
+    <!-- Striking Abstract Eyes (Left: Stylized Almond Gaze) -->
+    <ellipse cx="510" cy="540" rx="42" ry="22" fill="#ffffff" />
+    <circle cx="515" cy="540" r="18" fill="#090d16" />
+    <circle cx="522" cy="535" r="6" fill="#ffffff" />
+    <!-- Angular Eye Accent Lines -->
+    <line x1="450" y1="535" x2="570" y2="535" stroke="#090d16" stroke-width="5" stroke-linecap="round" />
+    <line x1="460" y1="515" x2="550" y2="515" stroke="url(#goldLeafGild)" stroke-width="4" stroke-linecap="round" />
+
+    <!-- Right Eye (Stylized Geometric Crescent) -->
+    <path d="M 640 540 A 35 35 0 0 1 730 540 Z" fill="url(#goldLeafGild)" />
+    <circle cx="685" cy="530" r="10" fill="#ffffff" />
+
+    <!-- Strong Cubist Nose Contour -->
+    <polygon points="600,480 625,650 575,660 595,480" fill="#1e1b4b" />
+    <polygon points="625,650 645,670 595,680 575,660" fill="url(#goldLeafGild)" />
+
+    <!-- Gilded Gold Sculptural Lips -->
+    <polygon points="550,710 600,695 650,710 600,740" fill="url(#goldLeafGild)" />
+    <line x1="540" y1="710" x2="660" y2="710" stroke="#8a2e19" stroke-width="4" stroke-linecap="round" />
+  </g>
+
+  <!-- Large Pierced Brass Statement Hoop (Piercing through left ear plane) -->
+  <g filter="url(#cubistDrop)">
+    <circle cx="390" cy="680" r="95" fill="none" stroke="url(#goldLeafGild)" stroke-width="20" />
+    <circle cx="390" cy="680" r="75" fill="none" stroke="#090d16" stroke-width="3" />
+    <circle cx="390" cy="775" r="16" fill="url(#terracottaPlane)" />
+  </g>
+
+  <!-- Dynamic Palette Knife Color Swipes & Textures (Foreground Layer) -->
+  <polygon points="820,860 1120,720 1080,770 780,910" fill="url(#goldLeafGild)" opacity="0.8" />
+  <polygon points="100,820 380,920 360,960 80,860" fill="url(#terracottaPlane)" opacity="0.7" />
+  <polygon points="180,1280 440,1160 420,1210 160,1330" fill="url(#cobaltDeep)" opacity="0.6" />
+
+  <!-- Fine Linear Rhythm Accents -->
+  <g stroke="#ffffff" stroke-width="2" opacity="0.4" stroke-dasharray="6 10">
+    <line x1="200" y1="200" x2="200" y2="1400" />
+    <line x1="1000" y1="200" x2="1000" y2="1400" />
+  </g>
+
+  <!-- Studio Seal -->
+  <text x="1080" y="1530" font-family="'Inter', sans-serif" font-size="15" font-weight="600" fill="#ffffff" letter-spacing="4" text-anchor="end" opacity="0.6">PRINTSCRAFTER • LEKKI ATELIER</text>
+  <text x="1080" y="1555" font-family="'Playfair Display', serif" font-size="13" font-style="italic" fill="url(#goldLeafGild)" text-anchor="end">Queen Amina • Abstract Gaze</text>
+</svg>

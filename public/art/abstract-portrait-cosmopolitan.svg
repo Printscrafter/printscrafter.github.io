@@ -1,0 +1,86 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 1600" width="1200" height="1600">
+  <defs>
+    <linearGradient id="coolSlateBg" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#1e293b" />
+      <stop offset="100%" stop-color="#0f172a" />
+    </linearGradient>
+
+    <linearGradient id="champagneGold" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#fef08a" />
+      <stop offset="35%" stop-color="#facc15" />
+      <stop offset="70%" stop-color="#ca8a04" />
+      <stop offset="100%" stop-color="#854d0e" />
+    </linearGradient>
+
+    <linearGradient id="rawUmber" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#9a3412" />
+      <stop offset="50%" stop-color="#7c2d12" />
+      <stop offset="100%" stop-color="#431407" />
+    </linearGradient>
+
+    <linearGradient id="tealShadow" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#14b8a6" />
+      <stop offset="100%" stop-color="#0f766e" />
+    </linearGradient>
+
+    <filter id="floatShadow" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="16" dy="28" stdDeviation="24" flood-color="#020617" flood-opacity="0.7" />
+    </filter>
+  </defs>
+
+  <!-- Cool Slate Canvas -->
+  <rect width="1200" height="1600" fill="url(#coolSlateBg)" />
+
+  <!-- Background Monumental Semicircle Moon Arch -->
+  <path d="M 200 880 A 400 400 0 0 1 1000 880 Z" fill="url(#champagneGold)" opacity="0.3" filter="url(#floatShadow)" />
+
+  <!-- Floating Deconstructed Geometric Facial Planes -->
+  <!-- Plane 1: Forehead & Crown (Raw Umber & Gold Angle) -->
+  <polygon points="360,260 720,200 840,420 440,460" fill="url(#rawUmber)" filter="url(#floatShadow)" />
+  <polygon points="440,460 720,200 800,240 500,480" fill="url(#champagneGold)" opacity="0.85" />
+
+  <!-- Plane 2: Left Cheek & Temple (Teal Shadow Block) -->
+  <polygon points="320,460 480,480 440,780 260,720" fill="url(#tealShadow)" filter="url(#floatShadow)" />
+
+  <!-- Plane 3: Central Nose & Brow Bridge (Sharp Floating Blade) -->
+  <polygon points="560,400 640,400 620,740 540,740" fill="url(#champagneGold)" filter="url(#floatShadow)" />
+  <polygon points="540,740 620,740 680,780 520,780" fill="#020617" />
+
+  <!-- Plane 4: Right Cheek & Gaze Arch (Sculptural Terracotta) -->
+  <polygon points="640,420 880,480 820,800 620,740" fill="#c2410c" filter="url(#floatShadow)" />
+
+  <!-- Deconstructed Abstract Eye Elements -->
+  <!-- Left Eye: Stylized Floating Almond Disk -->
+  <ellipse cx="400" cy="580" rx="48" ry="24" fill="#ffffff" filter="url(#floatShadow)" />
+  <circle cx="400" cy="580" r="18" fill="#0f172a" />
+  <circle cx="405" cy="575" r="7" fill="url(#champagneGold)" />
+
+  <!-- Right Eye: High-Modernist Geometric Slice -->
+  <polygon points="700,560 790,540 820,600 730,620" fill="#ffffff" filter="url(#floatShadow)" />
+  <circle cx="755" cy="580" r="16" fill="url(#champagneGold)" />
+  <circle cx="755" cy="580" r="6" fill="#0f172a" />
+
+  <!-- Plane 5: Floating Cubist Jaw & Gilded Lips -->
+  <g filter="url(#floatShadow)">
+    <polygon points="460,820 740,820 660,1040 520,1040" fill="#78350f" />
+    <polygon points="540,880 600,860 660,880 600,920" fill="url(#champagneGold)" />
+    <line x1="530" y1="885" x2="670" y2="885" stroke="#431407" stroke-width="4" stroke-linecap="round" />
+  </g>
+
+  <!-- Architectural Floating Standoff Column Neck & Collar -->
+  <g filter="url(#floatShadow)">
+    <polygon points="520,1040 660,1040 690,1320 490,1320" fill="url(#rawUmber)" />
+    <polygon points="280,1600 490,1320 690,1320 920,1600" fill="#0b1120" />
+    <!-- Floating Collar Arc -->
+    <path d="M 440 1280 Q 600 1360 760 1280" stroke="url(#champagneGold)" stroke-width="20" stroke-linecap="round" fill="none" />
+  </g>
+
+  <!-- Floating Minimalist Sphere Accent -->
+  <circle cx="880" cy="360" r="70" fill="url(#champagneGold)" filter="url(#floatShadow)" />
+  <circle cx="880" cy="360" r="45" fill="#1e293b" />
+  <circle cx="880" cy="360" r="20" fill="#ffffff" />
+
+  <!-- Studio Monogram -->
+  <text x="1080" y="1530" font-family="'Inter', sans-serif" font-size="15" font-weight="600" fill="#94a3b8" letter-spacing="4" text-anchor="end" opacity="0.6">PRINTSCRAFTER • LEKKI ATELIER</text>
+  <text x="1080" y="1555" font-family="'Playfair Display', serif" font-size="13" font-style="italic" fill="url(#champagneGold)" text-anchor="end">The Eko Cosmopolitan • Fragmented Soul</text>
+</svg>

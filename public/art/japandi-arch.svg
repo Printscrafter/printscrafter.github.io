@@ -1,0 +1,74 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 1600" width="1200" height="1600">
+  <defs>
+    <linearGradient id="warmIvory" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#f7f4ed" />
+      <stop offset="100%" stop-color="#ece6d8" />
+    </linearGradient>
+
+    <linearGradient id="terracottaRich" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#c96d53" />
+      <stop offset="100%" stop-color="#9d422a" />
+    </linearGradient>
+
+    <linearGradient id="warmOchre" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#dfa86a" />
+      <stop offset="100%" stop-color="#b67b36" />
+    </linearGradient>
+
+    <linearGradient id="charcoalStone" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#3b4048" />
+      <stop offset="100%" stop-color="#1e2126" />
+    </linearGradient>
+
+    <linearGradient id="sageStone" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#b4be9c" />
+      <stop offset="100%" stop-color="#7c8965" />
+    </linearGradient>
+
+    <filter id="zenShadow" x="-10%" y="-10%" width="120%" height="120%">
+      <feDropShadow dx="12" dy="22" stdDeviation="24" flood-color="#362923" flood-opacity="0.18" />
+    </filter>
+  </defs>
+
+  <!-- Textured Background Canvas -->
+  <rect width="1200" height="1600" fill="url(#warmIvory)" />
+
+  <!-- Background Giant Sun Halo Disk -->
+  <circle cx="600" cy="560" r="380" fill="url(#warmOchre)" opacity="0.4" filter="url(#zenShadow)" />
+  <circle cx="600" cy="560" r="260" fill="url(#warmOchre)" opacity="0.75" />
+
+  <!-- Multi-Layered Nested Terracotta Arches -->
+  <g filter="url(#zenShadow)">
+    <!-- Outer Arch -->
+    <path d="M 240 1480 L 240 950 C 240 680, 960 680, 960 950 L 960 1480 Z" fill="url(#terracottaRich)" />
+    <!-- Inner Arch 1 (Neutral Cutout) -->
+    <path d="M 330 1480 L 330 980 C 330 760, 870 760, 870 980 L 870 1480 Z" fill="url(#warmIvory)" />
+    <!-- Inner Arch 2 (Sage Layer) -->
+    <path d="M 410 1480 L 410 1020 C 410 840, 790 840, 790 1020 L 790 1480 Z" fill="url(#sageStone)" />
+    <!-- Inner Arch 3 (Charcoal Core) -->
+    <path d="M 490 1480 L 490 1060 C 490 920, 710 920, 710 1060 L 710 1480 Z" fill="url(#charcoalStone)" />
+  </g>
+
+  <!-- Zen Balanced River Stone Totem (Left Balance Stack) -->
+  <g filter="url(#zenShadow)">
+    <!-- Bottom Stone (Large Charcoal Oval) -->
+    <ellipse cx="260" cy="880" rx="140" ry="70" fill="url(#charcoalStone)" transform="rotate(-6 260 880)" />
+    <!-- Middle Stone (Warm Ochre) -->
+    <ellipse cx="255" cy="780" rx="105" ry="55" fill="url(#warmOchre)" transform="rotate(4 255 780)" />
+    <!-- Top Stone (Terracotta Sphere) -->
+    <ellipse cx="250" cy="695" rx="75" ry="45" fill="url(#terracottaRich)" />
+    <!-- Cap Stone (Pebble) -->
+    <ellipse cx="245" cy="630" rx="45" ry="30" fill="url(#sageStone)" />
+  </g>
+
+  <!-- Minimalist Line Accent Curves / Wave Rhythms -->
+  <path d="M 120 320 Q 600 180 1080 320" stroke="#1e2126" stroke-width="4" stroke-dasharray="8 12" fill="none" opacity="0.6" />
+  <path d="M 180 260 Q 600 120 1020 260" stroke="#c96d53" stroke-width="5" fill="none" opacity="0.75" />
+
+  <!-- Half Moon Crescent Accent at Top Right -->
+  <path d="M 880 220 A 100 100 0 0 0 980 320 L 880 320 Z" fill="url(#charcoalStone)" />
+
+  <!-- Studio Emblem -->
+  <text x="1080" y="1530" font-family="'Inter', sans-serif" font-size="15" font-weight="600" fill="#1e2126" letter-spacing="4" text-anchor="end" opacity="0.6">PRINTSCRAFTER • LEKKI ATELIER</text>
+  <text x="1080" y="1555" font-family="'Playfair Display', serif" font-size="13" font-style="italic" fill="#9d422a" text-anchor="end" opacity="0.9">Japandi Arch &amp; Balanced Stones</text>
+</svg>

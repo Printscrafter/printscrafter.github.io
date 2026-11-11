@@ -1,0 +1,163 @@
+{
+  "entities": {
+    "User": {
+      "title": "User",
+      "description": "Registered user profile with contact details, shipping address, tier, and role.",
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string",
+          "description": "Unique user identifier matching Firebase Auth UID."
+        },
+        "email": {
+          "type": "string",
+          "format": "email",
+          "description": "User email address."
+        },
+        "displayName": {
+          "type": "string",
+          "maxLength": 100,
+          "description": "User full display name."
+        },
+        "phone": {
+          "type": "string",
+          "maxLength": 25,
+          "description": "Direct phone or WhatsApp contact."
+        },
+        "defaultAddress": {
+          "type": "string",
+          "maxLength": 300,
+          "description": "Default delivery destination in Nigeria or abroad."
+        },
+        "membershipTier": {
+          "type": "string",
+          "enum": ["Collector", "Connoisseur", "Interior Designer"],
+          "description": "Collector patronage status."
+        },
+        "role": {
+          "type": "string",
+          "enum": ["customer", "admin"],
+          "description": "User account role."
+        },
+        "createdAt": {
+          "type": "string",
+          "description": "ISO timestamp of user registration."
+        },
+        "updatedAt": {
+          "type": "string",
+          "description": "ISO timestamp of profile update."
+        }
+      },
+      "required": ["id", "email", "role", "createdAt"]
+    },
+    "Order": {
+      "title": "Order",
+      "description": "Customer art order capturing specifications, framing, and payment reference.",
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string",
+          "description": "Unique order identifier."
+        },
+        "orderNumber": {
+          "type": "string",
+          "maxLength": 32,
+          "description": "Formatted order reference e.g. ORD-1700000000."
+        },
+        "userId": {
+          "type": "string",
+          "description": "UID of the user who placed the order or 'guest'."
+        },
+        "customerName": {
+          "type": "string",
+          "maxLength": 100,
+          "description": "Full name of the purchaser."
+        },
+        "customerEmail": {
+          "type": "string",
+          "format": "email",
+          "description": "Email address for order receipts and updates."
+        },
+        "customerPhone": {
+          "type": "string",
+          "maxLength": 25,
+          "description": "Phone number or WhatsApp contact for delivery."
+        },
+        "shippingAddress": {
+          "type": "string",
+          "maxLength": 300,
+          "description": "Delivery address in Nigeria or worldwide."
+        },
+        "items": {
+          "type": "array",
+          "description": "List of art pieces and custom specifications in this order."
+        },
+        "totalAmountNGN": {
+          "type": "number",
+          "description": "Total order amount in Nigerian Naira."
+        },
+        "currency": {
+          "type": "string",
+          "enum": ["NGN", "USD"],
+          "description": "Currency used at time of checkout."
+        },
+        "status": {
+          "type": "string",
+          "enum": ["pending", "paid", "processing", "shipped", "delivered", "cancelled"],
+          "description": "Current order fulfillment state."
+        },
+        "paystackReference": {
+          "type": "string",
+          "maxLength": 100,
+          "description": "Paystack transaction reference."
+        },
+        "customNotes": {
+          "type": "string",
+          "maxLength": 500,
+          "description": "Special framing, sizing, or hanging instructions."
+        },
+        "previewImageUrl": {
+          "type": "string",
+          "description": "Snapshot or preview art image URL."
+        },
+        "createdAt": {
+          "type": "string",
+          "description": "ISO timestamp when the order was placed."
+        },
+        "updatedAt": {
+          "type": "string",
+          "description": "ISO timestamp when the order was last modified."
+        }
+      },
+      "required": ["id", "orderNumber", "userId", "customerName", "customerEmail", "items", "totalAmountNGN", "status", "createdAt"]
+    }
+  },
+  "firestore": {
+    "/users/{userId}": {
+      "schema": {
+        "$ref": "#/entities/User"
+      },
+      "description": "User profile document indexed by Firebase Auth UID."
+    },
+    "/orders/{orderId}": {
+      "schema": {
+        "$ref": "#/entities/Order"
+      },
+      "description": "Customer wall art orders placed through checkout."
+    },
+    "/admins/{adminId}": {
+      "schema": {
+        "title": "Admin",
+        "description": "Administrator UID pointer document.",
+        "type": "object",
+        "properties": {
+          "email": {
+            "type": "string"
+          }
+        },
+        "required": ["email"]
+      },
+      "description": "Admin access list for elevated order management permissions."
+    }
+  }
+}

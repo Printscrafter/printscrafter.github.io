@@ -1,0 +1,60 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 1000" width="100%" height="100%">
+  <defs>
+    <linearGradient id="wabiBg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#f5f0e6"/>
+      <stop offset="50%" stop-color="#ebe3d5"/>
+      <stop offset="100%" stop-color="#dfd5c4"/>
+    </linearGradient>
+    <radialGradient id="plasterShade" cx="40%" cy="35%" r="65%">
+      <stop offset="0%" stop-color="#ffffff" stop-opacity="0.8"/>
+      <stop offset="60%" stop-color="#d6caa7" stop-opacity="0.3"/>
+      <stop offset="100%" stop-color="#8f8167" stop-opacity="0.6"/>
+    </radialGradient>
+    <filter id="plasterShadow" x="-10%" y="-10%" width="130%" height="130%">
+      <feDropShadow dx="12" dy="16" stdDeviation="14" flood-color="#5a4e3c" flood-opacity="0.22"/>
+    </filter>
+    <filter id="softRelief" x="-5%" y="-5%" width="120%" height="120%">
+      <feDropShadow dx="6" dy="8" stdDeviation="8" flood-color="#4a3e2e" flood-opacity="0.18"/>
+    </filter>
+  </defs>
+
+  <!-- Background Linen Canvas Texture -->
+  <rect width="800" height="1000" fill="url(#wabiBg)"/>
+  
+  <!-- Subtle Architectural Framing Grid -->
+  <rect x="40" y="40" width="720" height="920" fill="none" stroke="#cfc4b0" stroke-width="1.5" stroke-dasharray="6,6"/>
+
+  <!-- Bas-Relief Geometric Arch 1 -->
+  <g filter="url(#plasterShadow)">
+    <path d="M 160 820 L 160 380 Q 160 200 400 200 Q 640 200 640 380 L 640 820 Z" fill="#fcf9f2"/>
+  </g>
+
+  <!-- Inner Recessed Arch Shade -->
+  <path d="M 200 820 L 200 410 Q 200 250 400 250 Q 600 250 600 410 L 600 820 Z" fill="#e5dbca" opacity="0.7"/>
+
+  <!-- Sculptural Sun / Ceramic Disc -->
+  <circle cx="400" cy="380" r="110" fill="#c49a6c" filter="url(#softRelief)"/>
+  <circle cx="370" cy="350" r="110" fill="url(#plasterShade)" opacity="0.45"/>
+
+  <!-- Modern Wabi-Sabi Balanced River Pedestals -->
+  <!-- Terracotta Oval -->
+  <ellipse cx="400" cy="560" rx="140" ry="45" fill="#a86246" filter="url(#softRelief)"/>
+  
+  <!-- Stacked Sandstone Pebble -->
+  <ellipse cx="400" cy="620" rx="180" ry="50" fill="#d9cfbf" stroke="#c2b59f" stroke-width="2" filter="url(#softRelief)"/>
+  
+  <!-- Charcoal Raw Basalt Sconce Disc -->
+  <ellipse cx="400" cy="710" rx="220" ry="60" fill="#2d2926" filter="url(#plasterShadow)"/>
+
+  <!-- Organic Botanical Willow Stem with Floating Leaves -->
+  <path d="M 320 860 Q 380 640 370 480 Q 360 340 450 210" fill="none" stroke="#2d2926" stroke-width="4.5" stroke-linecap="round"/>
+  
+  <ellipse cx="375" cy="460" rx="28" ry="12" fill="#585145" transform="rotate(-35 375 460)"/>
+  <ellipse cx="350" cy="540" rx="32" ry="14" fill="#a86246" transform="rotate(25 350 540)"/>
+  <ellipse cx="385" cy="370" rx="26" ry="10" fill="#d4af37" transform="rotate(-40 385 370)"/>
+  <ellipse cx="440" cy="240" rx="22" ry="9" fill="#2d2926" transform="rotate(30 440 240)"/>
+
+  <!-- Studio Signature Seal -->
+  <circle cx="680" cy="900" r="18" fill="none" stroke="#a86246" stroke-width="2"/>
+  <text x="680" y="905" font-family="'Playfair Display', serif" font-size="12" font-weight="bold" fill="#a86246" text-anchor="middle">PS</text>
+</svg>

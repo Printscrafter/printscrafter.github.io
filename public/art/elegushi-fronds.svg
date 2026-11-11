@@ -1,0 +1,73 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 1600" width="1200" height="1600">
+  <defs>
+    <linearGradient id="softAlmond" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#fdfbf7" />
+      <stop offset="100%" stop-color="#f5efe6" />
+    </linearGradient>
+
+    <linearGradient id="warmOchreCircle" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#f4a261" />
+      <stop offset="100%" stop-color="#e76f51" />
+    </linearGradient>
+
+    <linearGradient id="softSageArch" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#ccd5ae" />
+      <stop offset="100%" stop-color="#e9edc9" />
+    </linearGradient>
+
+    <filter id="gentleShadow" x="-10%" y="-10%" width="120%" height="120%">
+      <feDropShadow dx="8" dy="16" stdDeviation="20" flood-color="#4a3f35" flood-opacity="0.1" />
+    </filter>
+  </defs>
+
+  <!-- Clean Off-White Base -->
+  <rect width="1200" height="1600" fill="url(#softAlmond)" />
+
+  <!-- Geometric Architectural Arches & Spheres in Background -->
+  <!-- Giant Soft Sage Arch -->
+  <path d="M 180 1500 L 180 750 C 180 400, 780 400, 780 750 L 780 1500 Z" fill="url(#softSageArch)" opacity="0.45" filter="url(#gentleShadow)" />
+
+  <!-- Warm Ochre Sun Disk (Elegushi Coast Sun) -->
+  <circle cx="820" cy="520" r="220" fill="url(#warmOchreCircle)" opacity="0.75" filter="url(#gentleShadow)" />
+
+  <!-- Minimalist Black Botanical Line Art (Elegushi Palm Fronds & Banana Leaf) -->
+  <g stroke="#1b2021" stroke-width="6" stroke-linecap="round" stroke-linejoin="round" fill="none">
+    
+    <!-- Central Palm Stem Curve -->
+    <path d="M 600 1500 C 620 1200, 580 850, 420 450 C 380 350, 320 280, 240 240" stroke-width="8" />
+
+    <!-- Left Frond Leaflets -->
+    <path d="M 590 1280 C 440 1260, 320 1200, 240 1140" />
+    <path d="M 585 1160 C 420 1120, 280 1050, 180 970" />
+    <path d="M 570 1040 C 380 980, 240 900, 150 810" />
+    <path d="M 550 920 C 350 840, 220 750, 140 650" />
+    <path d="M 520 800 C 320 710, 210 610, 150 510" />
+    <path d="M 480 690 C 300 590, 210 490, 180 390" />
+    <path d="M 430 580 C 290 490, 230 400, 220 320" />
+
+    <!-- Right Frond Leaflets (Crossing over Sun Disk) -->
+    <path d="M 605 1320 C 740 1300, 880 1250, 980 1180" />
+    <path d="M 595 1200 C 760 1160, 920 1090, 1040 1010" />
+    <path d="M 580 1080 C 770 1020, 940 930, 1060 830" />
+    <path d="M 560 960 C 760 880, 930 780, 1040 670" />
+    <path d="M 530 840 C 730 750, 890 640, 980 520" />
+    <path d="M 490 730 C 670 630, 810 520, 880 400" />
+    <path d="M 440 620 C 600 520, 720 420, 760 310" />
+    <path d="M 380 500 C 510 420, 600 330, 620 230" />
+
+    <!-- Second Slender Accent Leaf Shoot -->
+    <path d="M 680 1500 C 740 1300, 820 1100, 840 950" stroke-width="5" />
+    <path d="M 720 1350 C 820 1300, 920 1260, 990 1230" stroke-width="4" />
+    <path d="M 760 1220 C 880 1160, 980 1110, 1050 1070" stroke-width="4" />
+    <path d="M 800 1100 C 910 1040, 1010 980, 1070 930" stroke-width="4" />
+    <path d="M 830 980 C 930 920, 1010 850, 1060 790" stroke-width="4" />
+  </g>
+
+  <!-- Modern Geometric Balance Disks (Minimalist Zen composition) -->
+  <circle cx="280" cy="1360" r="60" fill="#e76f51" opacity="0.8" />
+  <circle cx="280" cy="1360" r="30" fill="#fdfbf7" />
+
+  <!-- Studio Emblem -->
+  <text x="1080" y="1530" font-family="'Inter', sans-serif" font-size="15" font-weight="600" fill="#1b2021" letter-spacing="4" text-anchor="end" opacity="0.6">PRINTSCRAFTER • LEKKI ATELIER</text>
+  <text x="1080" y="1555" font-family="'Playfair Display', serif" font-size="13" font-style="italic" fill="#e76f51" text-anchor="end" opacity="0.9">Elegushi Coastal Fronds • Minimal Botanical</text>
+</svg>

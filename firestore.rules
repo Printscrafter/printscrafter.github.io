@@ -1,0 +1,87 @@
+rules_version = '2';
+
+service cloud.firestore {
+  match /databases/{database}/documents {
+
+    // Default-deny catch-all (Pillar 1)
+    match /{document=**} {
+      allow read, write: if false;
+    }
+
+    // Helper functions (Pillar 3 & Hardened primitives)
+    function isValidId(id) {
+      return id is string && id.size() > 0 && id.size() <= 128 && id.matches('^[a-zA-Z0-9_\\-]+$');
+    }
+
+    function incoming() {
+      return request.resource.data;
+    }
+
+    function existing() {
+      return resource.data;
+    }
+
+    function isSignedIn() {
+      return request.auth != null;
+    }
+
+    function isAdmin() {
+      return isSignedIn() && (
+        exists(/databases/$(database)/documents/admins/$(request.auth.uid)) ||
+        request.auth.token.email == 'printscrafter@gmail.com'
+      );
+    }
+
+    function isValidUser(data) {
+      return data.keys().hasAll(['id', 'email', 'role', 'createdAt']) &&
+        data.id is string && data.id == request.auth.uid &&
+        data.email is string && data.email.size() <= 120 &&
+        data.role in ['customer', 'admin'] &&
+        data.createdAt is string && data.createdAt.size() <= 40 &&
+        (!('displayName' in data) || (data.displayName is string && data.displayName.size() <= 100)) &&
+        (!('phone' in data) || (data.phone is string && data.phone.size() <= 30)) &&
+        (!('defaultAddress' in data) || (data.defaultAddress is string && data.defaultAddress.size() <= 400)) &&
+        (!('membershipTier' in data) || (data.membershipTier is string && data.membershipTier in ['Collector', 'Connoisseur', 'Interior Designer']));
+    }
+
+    function isValidOrder(data) {
+      return data.keys().hasAll(['id', 'orderNumber', 'userId', 'customerName', 'customerEmail', 'items', 'totalAmountNGN', 'status', 'createdAt']) &&
+        data.id is string && isValidId(data.id) &&
+        data.orderNumber is string && data.orderNumber.size() <= 64 &&
+        data.userId is string && (data.userId == request.auth.uid || isAdmin()) &&
+        data.customerName is string && data.customerName.size() <= 100 &&
+        data.customerEmail is string && data.customerEmail.size() <= 120 &&
+        data.items is list && data.items.size() > 0 && data.items.size() <= 50 &&
+        data.totalAmountNGN is number && data.totalAmountNGN >= 0 &&
+        data.status in ['pending', 'paid', 'processing', 'shipped', 'delivered', 'cancelled'] &&
+        data.createdAt is string && data.createdAt.size() <= 40;
+    }
+
+    // Users Collection
+    match /users/{userId} {
+      allow get: if isSignedIn() && (request.auth.uid == userId || isAdmin());
+      allow list: if isAdmin();
+      allow create: if isSignedIn() && request.auth.uid == userId && isValidUser(incoming());
+      allow update: if isSignedIn() && (request.auth.uid == userId || isAdmin()) && isValidUser(incoming()) && incoming().id == existing().id && (isAdmin() || incoming().role == existing().role);
+      allow delete: if isAdmin();
+    }
+
+    // Orders Collection
+    match /orders/{orderId} {
+      allow get: if isSignedIn() && (resource.data.userId == request.auth.uid || isAdmin());
+      allow list: if isSignedIn() && (resource.data.userId == request.auth.uid || isAdmin());
+      allow create: if isSignedIn() && incoming().userId == request.auth.uid && isValidOrder(incoming());
+      allow update: if isSignedIn() && (
+        isAdmin() ||
+        (resource.data.userId == request.auth.uid && incoming().diff(existing()).affectedKeys().hasOnly(['customNotes', 'updatedAt']))
+      ) && isValidOrder(incoming()) && incoming().id == existing().id && incoming().orderNumber == existing().orderNumber;
+      allow delete: if isAdmin();
+    }
+
+    // Admins Collection
+    match /admins/{adminId} {
+      allow read: if isAdmin();
+      allow write: if isAdmin();
+    }
+  }
+}

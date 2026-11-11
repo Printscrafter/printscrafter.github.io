@@ -1,0 +1,83 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 1600" width="1200" height="1600">
+  <defs>
+    <linearGradient id="warmSandBg" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#faf7f2" />
+      <stop offset="100%" stop-color="#f0ebe1" />
+    </linearGradient>
+
+    <linearGradient id="terracottaBlob" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#e8927c" />
+      <stop offset="100%" stop-color="#c85a44" />
+    </linearGradient>
+
+    <linearGradient id="mustardBlob" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#edd382" />
+      <stop offset="100%" stop-color="#d4af37" />
+    </linearGradient>
+
+    <linearGradient id="sageBlob" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#a3b18a" />
+      <stop offset="100%" stop-color="#588157" />
+    </linearGradient>
+
+    <filter id="softShadow" x="-10%" y="-10%" width="120%" height="120%">
+      <feDropShadow dx="10" dy="20" stdDeviation="25" flood-color="#3c2f2f" flood-opacity="0.12" />
+    </filter>
+  </defs>
+
+  <!-- Warm Off-White Canvas Ground -->
+  <rect width="1200" height="1600" fill="url(#warmSandBg)" />
+
+  <!-- Organic Shape Art Background Blocks (Japandi / Bohemian shapes) -->
+  <!-- Mustard Sun Disk -->
+  <circle cx="750" cy="460" r="240" fill="url(#mustardBlob)" opacity="0.65" filter="url(#softShadow)" />
+
+  <!-- Terracotta Organic Arch Silhouette -->
+  <path d="M 280 1480 L 280 820 C 280 520, 680 520, 680 820 L 680 1480 Z" fill="url(#terracottaBlob)" opacity="0.45" filter="url(#softShadow)" />
+
+  <!-- Sage Green Botanical Organic Oval -->
+  <ellipse cx="440" cy="1160" rx="220" ry="280" fill="url(#sageBlob)" opacity="0.3" transform="rotate(-25 440 1160)" />
+
+  <!-- Single Continuous Line Art Silhouette (Afrocentric Muse Profile with Sculptural Headwrap) -->
+  <g stroke="#1c1917" stroke-width="7" stroke-linecap="round" stroke-linejoin="round" fill="none">
+    
+    <!-- Sculptural Headwrap Outer Volume and Folds -->
+    <path d="M 420 540 C 380 400, 480 240, 640 220 C 800 200, 920 340, 880 500 C 940 560, 960 680, 880 760 C 850 800, 800 820, 750 820" />
+    
+    <!-- Headwrap Wrap Fold Lines -->
+    <path d="M 520 280 C 620 380, 780 400, 860 490" />
+    <path d="M 480 370 C 580 460, 720 480, 820 600" />
+    <path d="M 450 470 C 560 540, 680 560, 760 680" />
+
+    <!-- Forehead, Delicate Nose Ridge, Lips, Chin, Neck -->
+    <path d="M 460 550 C 470 600, 475 640, 465 670 C 455 700, 430 730, 440 760 C 450 780, 480 785, 470 805 C 460 820, 435 825, 445 845 C 455 860, 480 865, 475 885 C 465 910, 420 945, 450 990 C 480 1030, 520 1080, 530 1180 L 540 1350" />
+
+    <!-- Closed Serene Eye Contour & Brow -->
+    <path d="M 500 710 Q 535 700 565 725" />
+    <path d="M 520 735 Q 545 765 570 740" />
+    <!-- Delicate Eyelashes -->
+    <path d="M 540 755 L 538 770" />
+    <path d="M 552 755 L 554 772" />
+
+    <!-- Cheekbone Contour and Ear with Statement Brass Hoops -->
+    <path d="M 580 780 C 630 830, 650 900, 640 960" />
+    <!-- Hoop Earring (Filled with gold gradient) -->
+    <circle cx="680" cy="910" r="65" stroke="url(#mustardBlob)" stroke-width="10" />
+    <circle cx="680" cy="910" r="45" stroke="#1c1917" stroke-width="3" />
+
+    <!-- Elegant Collarbone & Shoulder Sweeps -->
+    <path d="M 530 1180 C 580 1200, 740 1220, 880 1320 L 960 1480" />
+    <path d="M 450 1120 C 380 1180, 260 1280, 180 1480" />
+    <path d="M 540 1260 Q 640 1280 720 1260" />
+
+    <!-- Minimalist Monstera Leaf Accent Stem at Bottom -->
+    <path d="M 850 1480 C 820 1300, 860 1080, 980 940" stroke-width="5" />
+    <path d="M 910 1180 C 970 1160, 1040 1200, 1070 1260" stroke-width="4" />
+    <path d="M 930 1100 C 1000 1060, 1060 1090, 1090 1140" stroke-width="4" />
+    <path d="M 960 1020 C 1020 980, 1080 1000, 1100 1040" stroke-width="4" />
+  </g>
+
+  <!-- Studio Emblem -->
+  <text x="1080" y="1530" font-family="'Inter', sans-serif" font-size="15" font-weight="600" fill="#1c1917" letter-spacing="4" text-anchor="end" opacity="0.6">PRINTSCRAFTER • LEKKI ATELIER</text>
+  <text x="1080" y="1555" font-family="'Playfair Display', serif" font-size="13" font-style="italic" fill="#c85a44" text-anchor="end" opacity="0.9">Lagos Muse • Minimalist Continuous Line</text>
+</svg>

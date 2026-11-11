@@ -1,0 +1,77 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 1600" width="1200" height="1600">
+  <defs>
+    <linearGradient id="danfoYellow" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#fff033" />
+      <stop offset="60%" stop-color="#f5c200" />
+      <stop offset="100%" stop-color="#d49b00" />
+    </linearGradient>
+
+    <linearGradient id="charcoalDark" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#1e2229" />
+      <stop offset="100%" stop-color="#0d0e12" />
+    </linearGradient>
+
+    <linearGradient id="warmAsphalt" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#2a2d34" />
+      <stop offset="50%" stop-color="#3f4553" />
+      <stop offset="100%" stop-color="#1f2229" />
+    </linearGradient>
+
+    <linearGradient id="terracottaAccent" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#e0533c" />
+      <stop offset="100%" stop-color="#9d2b18" />
+    </linearGradient>
+
+    <filter id="paintShadow" x="-10%" y="-10%" width="120%" height="120%">
+      <feDropShadow dx="15" dy="25" stdDeviation="18" flood-color="#000000" flood-opacity="0.35" />
+    </filter>
+  </defs>
+
+  <!-- Cream Textured Canvas Base -->
+  <rect width="1200" height="1600" fill="#f4efe6" />
+
+  <!-- Organic Background Color Wash -->
+  <path d="M 0 0 L 850 0 C 720 400, 950 800, 600 1100 L 0 1200 Z" fill="#eae3d2" opacity="0.7" />
+
+  <!-- Large Bold Danfo Diagonal Slices (Iconic Lagos Yellow Stripes) -->
+  <g filter="url(#paintShadow)">
+    <!-- Base Yellow Geometric Block -->
+    <polygon points="120,280 1080,140 1020,440 80,580" fill="url(#danfoYellow)" />
+    <!-- Iconic Twin Transit Racing Stripes -->
+    <polygon points="150,330 1050,195 1040,240 140,375" fill="url(#charcoalDark)" />
+    <polygon points="135,395 1030,260 1020,305 125,440" fill="url(#charcoalDark)" />
+  </g>
+
+  <!-- Cubist Architectural / Bus Silhouette Contours -->
+  <g filter="url(#paintShadow)">
+    <!-- Main Angular Form -->
+    <polygon points="200,640 920,540 980,980 260,1080" fill="url(#charcoalDark)" />
+    <!-- Golden Accent Window Pane -->
+    <polygon points="260,680 540,640 520,840 240,880" fill="url(#danfoYellow)" />
+    <!-- Warm Terracotta Geometric Accent -->
+    <polygon points="570,635 880,590 860,780 550,820" fill="url(#terracottaAccent)" />
+  </g>
+
+  <!-- Graphic Typographic Abstraction / EKO / 01 -->
+  <text x="320" y="800" font-family="'Playfair Display', serif" font-size="110" font-weight="800" fill="#121316" letter-spacing="8">EKO</text>
+  <text x="740" y="740" font-family="'Inter', sans-serif" font-size="70" font-weight="700" fill="#ffffff" letter-spacing="4">01</text>
+
+  <!-- Bold Circular Balance Disc (Sun in the city haze) -->
+  <circle cx="860" cy="1160" r="180" fill="url(#danfoYellow)" opacity="0.95" filter="url(#paintShadow)" />
+  <circle cx="860" cy="1160" r="140" fill="none" stroke="url(#charcoalDark)" stroke-width="6" stroke-dasharray="16 12" />
+
+  <!-- Dynamic Road Contour Lines -->
+  <path d="M 120 1240 Q 400 1100 800 1340 T 1120 1260" stroke="url(#charcoalDark)" stroke-width="14" stroke-linecap="round" fill="none" />
+  <path d="M 80 1320 Q 450 1180 820 1400 T 1150 1330" stroke="url(#terracottaAccent)" stroke-width="8" stroke-linecap="round" fill="none" />
+  <path d="M 160 1400 Q 500 1260 850 1460" stroke="url(#danfoYellow)" stroke-width="18" stroke-linecap="round" fill="none" />
+
+  <!-- Subtle Paint Splatter / Impasto Texture Accent -->
+  <circle cx="280" cy="220" r="14" fill="url(#danfoYellow)" />
+  <circle cx="340" cy="190" r="8" fill="url(#danfoYellow)" />
+  <circle cx="310" cy="250" r="6" fill="#1e2229" />
+  <circle cx="980" cy="480" r="12" fill="url(#terracottaAccent)" />
+
+  <!-- Signature / Atelier Seal -->
+  <text x="1080" y="1530" font-family="'Inter', sans-serif" font-size="15" font-weight="600" fill="#1e2229" letter-spacing="4" text-anchor="end" opacity="0.7">PRINTSCRAFTER • LEKKI ATELIER</text>
+  <text x="1080" y="1555" font-family="'Playfair Display', serif" font-size="13" font-style="italic" fill="#9d2b18" text-anchor="end" opacity="0.9">Danfo Pulse &amp; Urban Rhythm</text>
+</svg>
